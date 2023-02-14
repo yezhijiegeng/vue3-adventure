@@ -25,12 +25,17 @@ const router = createRouter({
     {
       path: '/TestReactive',
       name: 'Reactive',
-      component: () => import('../views/demos/TestReactive.vue')
+      component: () => import('../views/demos/TestReactive/TestReactive.vue')
     },
     {
       path: '/TestReactive2',
-      name: 'Reactive',
-      component: () => import('../views/demos/TestReactive2.vue')
+      name: 'Reactive2',
+      component: () => import('../views/demos/TestReactive/TestReactive2.vue')
+    },
+    {
+      path: '/TestReactive3',
+      name: '深层响应性',
+      component: () => import('../views/demos/TestReactive/TestReactive3.vue')
     }
   ]
 })

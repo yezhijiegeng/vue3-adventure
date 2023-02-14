@@ -14,10 +14,16 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/info">info</RouterLink>
+      </nav>
+      <nav>
+        响应式基础：
         <RouterLink to="/TestReactive">Reactive</RouterLink>
         <RouterLink to="/TestReactive2">Reactive-setup</RouterLink>
+        <RouterLink to="/TestReactive3">深层响应性</RouterLink>
       </nav>
     </div>
+
+    
   </header>
 
   <RouterView />

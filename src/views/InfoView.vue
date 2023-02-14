@@ -20,6 +20,9 @@
   <div v-bind="obj">这是一个容器</div>
   <div :id="`list-${dynamicId}`">支持表达式</div>
 
+
+
+
 </template>
 
 <style scoped>

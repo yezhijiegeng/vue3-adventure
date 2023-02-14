@@ -10,5 +10,11 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    // 单元测试的支持
+    "types": ["vitest/globals"],
+    // 解决测试文件中的 '--isolatedModules'报错
+    "isolatedModules": false
+  }
 }

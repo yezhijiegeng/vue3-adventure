@@ -4,6 +4,9 @@
 
     function increment(params) {
         state.count ++
+        this.$nextTick(()=>{
+            // 访问更新后的dom
+        })
     }
 
 </script>
