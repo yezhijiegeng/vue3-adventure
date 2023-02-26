@@ -10,6 +10,11 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/home',
+      name: 'index',
+      component: () => import('../views/home/index.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -25,17 +30,27 @@ const router = createRouter({
     {
       path: '/TestReactive',
       name: 'Reactive',
-      component: () => import('../views/demos/TestReactive/TestReactive.vue')
+      component: () => import('../views/demos/TestReactive/Test3Reactive.vue')
     },
     {
       path: '/TestReactive2',
       name: 'Reactive2',
-      component: () => import('../views/demos/TestReactive/TestReactive2.vue')
+      component: () => import('../views/demos/TestReactive/Test3Reactive2.vue')
     },
     {
       path: '/TestReactive3',
       name: '深层响应性',
-      component: () => import('../views/demos/TestReactive/TestReactive3.vue')
+      component: () => import('../views/demos/TestReactive/Test3Reactive3.vue')
+    },
+    {
+      path: '/Test4Computed',
+      name: '计算属性',
+      component: () => import('../views/demos/base/Test4Computed.vue')
+    },
+    {
+      path: '/Test5ClassBindCss',
+      name: 'Class 与 Style 绑定',
+      component: () => import('../views/demos/base/Test5ClassBindCss.vue')
     }
   ]
 })

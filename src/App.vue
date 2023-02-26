@@ -6,12 +6,11 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
+      <HelloWorld msg="You did it!" class="danger" />
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/home">首页</RouterLink>
+        <RouterLink to="/index">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/info">info</RouterLink>
       </nav>
@@ -20,9 +19,10 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/TestReactive">Reactive</RouterLink>
         <RouterLink to="/TestReactive2">Reactive-setup</RouterLink>
         <RouterLink to="/TestReactive3">深层响应性</RouterLink>
+        <RouterLink to="/Test4Computed">计算属性</RouterLink>
+        <RouterLink to="/Test5ClassBindCss">Class 与 Style 绑定</RouterLink>
       </nav>
     </div>
-
     
   </header>
 
@@ -89,6 +89,9 @@ nav a:first-of-type {
 
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+  .danger {
+    color:red;
   }
 }
 </style>
