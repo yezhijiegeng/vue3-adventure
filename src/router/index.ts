@@ -51,6 +51,16 @@ const router = createRouter({
       path: '/Test5ClassBindCss',
       name: 'Class 与 Style 绑定',
       component: () => import('../views/demos/base/Test5ClassBindCss.vue')
+    },
+    {
+      path: '/Test6ConditionRender',
+      name: '条件渲染',
+      component: () => import('../views/demos/base/Test6ConditionRender.vue')
+    },
+    {
+      path: '/Test7ListRender',
+      name: '列表渲染',
+      component: () => import('../views/demos/base/Test7ListRender.vue')
     }
   ]
 })

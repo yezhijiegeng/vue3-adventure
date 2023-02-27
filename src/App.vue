@@ -21,6 +21,8 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/TestReactive3">深层响应性</RouterLink>
         <RouterLink to="/Test4Computed">计算属性</RouterLink>
         <RouterLink to="/Test5ClassBindCss">Class 与 Style 绑定</RouterLink>
+        <RouterLink to="/Test6ConditionRender">条件渲染</RouterLink>
+        <RouterLink to="/Test7ListRender">列表渲染</RouterLink>
       </nav>
     </div>
     
