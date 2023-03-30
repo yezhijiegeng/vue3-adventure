@@ -1,16 +1,31 @@
 <template>
   <div class="tab">
-    111
-    <ForeignItem :title="'foreignItem'" :likes="5"></ForeignItem>
+    <CustomInput
+      v-model:title="title"
+      v-model:firstName="first"
+      v-model:lastName="last"
+    />
+    {{ title }}
+    {{ first }},{{ last }}
+    <InfoItem :title="'foreignItem'" :likes="5"></InfoItem>
   </div>
 </template>
 <script>
 import { onMounted } from "vue";
-import ForeignItem from "../../../components/foreignItem/index.vue";
+import InfoItem from "../../../components/infoItem/index.vue";
+import CustomInput from "@/components/CustomInput/index.vue";
 export default {
   name: "foreign",
-  component: {
-    ForeignItem,
+  components: {
+    CustomInput,
+    InfoItem,
+  },
+  data() {
+    return {
+      title: "v-model argument example",
+      first: "tao",
+      last: "zi",
+    };
   },
   setup() {
     onMounted(() => {

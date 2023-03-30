@@ -16,10 +16,10 @@ import { ref, onMounted } from "vue";
 import InfoItem from "../../../components/infoItem/index.vue";
 let title = "item-info";
 let fontSize = ref(12);
+
 onMounted(() => {
   console.log("onMounted");
 });
-
 /* const addNew = function() {
   console.log("addNew")
 } */

@@ -172,6 +172,8 @@ const currentTab = ref(Home);
 const tabs: any = {
   Home,
   Program,
+  // Ai,
+  // Draw,
   Foreign,
 };
 </script>
