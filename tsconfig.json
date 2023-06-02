@@ -17,5 +17,6 @@
     // 解决测试文件中的 '--isolatedModules'报错
     "isolatedModules": false,
     // "strict": true,
+    // "noImplicitAny": true
   }
 }

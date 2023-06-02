@@ -1,5 +1,5 @@
 <script setup>
-import { watch,ref } from "vue";
+import { watch, ref } from "vue";
 
 const question = ref("");
 const answer = ref("Questions usually contain a question mark. ;-)");
@@ -16,6 +16,28 @@ watch(question, async (newQuestion, oldQuestion) => {
     }
   }
 });
+
+const x = ref(0);
+const y = ref(0);
+const sum = ref(0);
+
+// 单个ref
+watch(x, (newX) => {
+  console.log("x is ", x.value);
+});
+
+// getter 函数
+watch(
+  () => x.value + y.value,
+  (sum) => {
+    console.log(`sum is:${sum}`);
+  }
+);
+
+// 多个来源组成的数组
+watch([x, () => y.value], ([newX, newY]) => {
+  console.log(`x is ${newX} and y is ${newY}`);
+});
 </script>
 <template>
   <div>
@@ -27,6 +49,8 @@ watch(question, async (newQuestion, oldQuestion) => {
     </p>
     <p>{{ answer }}</p>
     <hr />
+
+    x:<input v-model="x" /> y:<input v-model="y" />
   </div>
 </template>
 <style></style>

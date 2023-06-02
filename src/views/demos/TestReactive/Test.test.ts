@@ -19,7 +19,7 @@ describe('Button', () => {
 })
  */
 
- // 测试用例的写法
+// 测试用例的写法
 /* import { expect, test, describe, it} from 'vitest'
 import { sum } from './Button'
  
@@ -54,46 +54,44 @@ it('测试包含', () => {
   expect('hello').toMatch(/h/)
 }) */
 
-import {expect, test } from 'vitest'
-import { getDataCallback, getDataPromise,sum } from './Button'
+import { expect, test } from "vitest";
+import { getDataCallback, getDataPromise, sum } from "./Button";
 
-test('测试sum函数',()=>{
-  expect(sum(1,2)).toBe(3);
-})
+test("测试sum函数", () => {
+  expect(sum(1, 2)).toBe(3);
+});
 
 /* describe 分组 */
-describe('测试基本方法',()=>{
-  it('测试sum函数',()=>{
-    expect(sum(1,2)).toBe(3);
-  })
-  it('测试1+1=2',()=>{
-      expect(1+1).toBe(2);
-  })
-  it('对象比较',()=>{
-    expect({name:1}).toEqual({name:1})
-  })
-})
+describe("测试基本方法", () => {
+  it("测试sum函数", () => {
+    expect(sum(1, 2)).toBe(3);
+  });
+  it("测试1+1=2", () => {
+    expect(1 + 1).toBe(2);
+  });
+  it("对象比较", () => {
+    expect({ name: 1 }).toEqual({ name: 1 });
+  });
+});
 
-it('测试不相等',()=>{
-  expect(1+1).not.toBe(3);
+it("测试不相等", () => {
+  expect(1 + 1).not.toBe(3);
   expect(3).toBeLessThan(6);
-})
+});
 
-it('测试包含',()=>{
-  expect("hello").toContain('h')
-  expect('hello').toMatch(/h/)
-})
+it("测试包含", () => {
+  expect("hello").toContain("h");
+  expect("hello").toMatch(/h/);
+});
 
 /* 测试异步 */
-it('测试回调函数',(done)=>{
-  getDataCallback((data)=>{
-    expect(data).toEqual({name:'callback'})
-  })
-})
+it("测试回调函数", (done) => {
+  getDataCallback((data) => {
+    expect(data).toEqual({ name: "callback" });
+  });
+});
 
-it('测试promise', async ()=>{
+it("测试promise", async () => {
   const data = await getDataPromise();
-  expect(data).toEqual({name:'callback'})
-})
-
-
+  expect(data).toEqual({ name: "callback" });
+});
