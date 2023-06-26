@@ -39,6 +39,12 @@ const router = createRouter({
                   "../views/vue3/guide/typescript/compositonApi/index.vue"
                 ),
             },
+            {
+              path: "optionApi",
+              name: "TypeScript 与选项式 API",
+              component: () =>
+                import("../views/vue3/guide/typescript/optionApi/index.vue"),
+            },
           ],
           // icon: Setting,
           /* children: [
@@ -106,6 +112,28 @@ const router = createRouter({
         }, */
 
         /* 互动教程 end */
+      ],
+    },
+    {
+      path: "/javascript",
+      name: "/javascript",
+      children: [
+        {
+          name: "typescript",
+          path: "/typescript",
+          component: () => import("../views/javascript/typescript/index.vue"),
+        },
+      ],
+    },
+    {
+      path: "/ai",
+      name: "/ai",
+      children: [
+        {
+          name: "ai导航",
+          path: "/ai-nav",
+          component: () => import("../views/ai/ai-nav/index.vue"),
+        },
       ],
     },
     /* {
@@ -180,6 +208,11 @@ const router = createRouter({
       path: "/profile",
       name: "个人中心",
       component: () => import("@/views/profile/index.vue"),
+    },
+    {
+      path: "/login",
+      name: "登录",
+      component: () => import("@/views/profile/login/index.vue"),
     },
   ],
 });

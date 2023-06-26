@@ -10,7 +10,7 @@
     <div class="wrapper">
       <HelloWorld msg="You did it!" class="danger" />
       <nav>
-        <RouterLink to="/home">首页</RouterLink>
+        <!-- <RouterLink to="/home">{{ t("home") }}</RouterLink> -->
         <RouterLink to="/index">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/info">info</RouterLink>
@@ -140,6 +140,10 @@ const items = reactive([
       {
         name: "TypeScript 与组合式 API",
         path: "/vue3/guide/compositonApi",
+      },
+      {
+        name: "TypeScript 与选项式 API",
+        path: "/vue3/guide/optionApi",
       },
     ],
   },

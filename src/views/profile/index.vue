@@ -1,12 +1,12 @@
 <template>
   <div class="profile">
     profile
-    <login @submit="submit"></login>
+    <profile @submit="submit"></profile>
   </div>
 </template>
 <script lang="ts">
 import { onMounted, computed, reactive, defineComponent } from "vue";
-import login from "./login/index.vue";
+import profile from "./profile/index.vue";
 /* 
 const form = reactive({ 
   name: "",
@@ -28,7 +28,7 @@ export default defineComponent({
     },
   },
   components: {
-    login,
+    profile,
   },
 });
 </script>

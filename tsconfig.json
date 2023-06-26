@@ -16,7 +16,16 @@
     "types": ["vitest/globals"],
     // 解决测试文件中的 '--isolatedModules'报错
     "isolatedModules": false,
-    // "strict": true,
+    "strict": false,
     // "noImplicitAny": true
-  }
+    "module": "commonJs",
+    "paths":{
+      "*":["types/*"]
+      // "@/*":["src/*"]
+    },
+    "baseUrl":"./",
+    "outDir": "lib",
+    "declaration": true
+  },
+  "include":["**/*.ts","src/**/*.d.ts","src/types/**/*.d.ts","src/**/*.tsx","src/**/*.vue"]
 }

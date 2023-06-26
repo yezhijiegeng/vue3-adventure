@@ -5,6 +5,7 @@ import "element-plus/dist/index.css";
 import App from "./App.vue";
 import router from "./router";
 import plugins from "./components/common/index";
+// import i18n from "./locals";
 
 import "./assets/main.css";
 
@@ -13,8 +14,10 @@ const app = createApp(App);
 app.use(createPinia());
 app.use(router);
 app.use(ElementPlus);
-app.mount("#app");
 app.use(plugins);
+// app.use(i18n);
+
+app.mount("#app");
 
 /* 处理错误 */
 app.config.errorHandler = (err) => {

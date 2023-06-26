@@ -1,30 +1,9 @@
 <template>
-  <div>
+  <div class="home">
     <el-container>
-      <el-header>
-        <el-menu
-          :default-active="activeIndex"
-          class="el-menu-demo"
-          mode="horizontal"
-          @select="handleSelect"
-        >
-          <el-menu-item index="1">Processing Center</el-menu-item>
-          <el-sub-menu index="2">
-            <template #title>Workspace</template>
-            <el-menu-item index="2-1">item one</el-menu-item>
-            <el-menu-item index="2-2">item two</el-menu-item>
-            <el-menu-item index="2-3">item three</el-menu-item>
-            <el-sub-menu index="2-4">
-              <template #title>item four</template>
-              <el-menu-item index="2-4-1">item one</el-menu-item>
-              <el-menu-item index="2-4-2">item two</el-menu-item>
-              <el-menu-item index="2-4-3">item three</el-menu-item>
-            </el-sub-menu>
-          </el-sub-menu>
-          <el-menu-item index="3" disabled>Info</el-menu-item>
-          <el-menu-item index="4">Orders</el-menu-item>
-        </el-menu>
-      </el-header>
+      <!-- <el-header>
+        <Header />
+      </el-header> -->
       <el-container>
         <el-aside width="200px">
           <el-menu router>
@@ -74,7 +53,7 @@
         </el-aside>
         <el-main>
           <div>
-            <Header></Header>
+            <!-- <Header></Header> -->
           </div>
           <div class="demo">
             <button
@@ -137,16 +116,33 @@ const items = reactive([
     ],
   },
   {
-    name: "Navigator two",
+    name: "前端",
     // icon: Message,
     index: 2,
     children: [
+      {
+        name: "typescript",
+        path: "/typescript",
+        // icon: Setting,
+      },
       {
         name: "Navigator two two",
         path: "/testtwo",
         // icon: Setting,
       },
     ],
+  },
+  {
+    name: "ai",
+    index: 3,
+    children: [
+      {
+        name: "ai",
+        path: "/ai-nav",
+      },
+      // path: "/ai",
+    ],
+    // icon: Message,
   },
   {
     name: "Navigator three",
@@ -160,20 +156,19 @@ const items = reactive([
   },
 ]);
 
-const activeIndex = ref("1");
 const activeIndex2 = ref("1");
-const handleSelect = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
-};
 
 const toVue3 = function () {
   router.push("/vue3");
 };
 
+const toLogin = function () {
+  router.push("/login");
+};
+
 const input = ref(null);
 const value = ref(null);
 onMounted(() => {
-  debugger;
   // input.value.focus();
   test();
 });
@@ -203,36 +198,43 @@ const tabs: any = {
   Ai,
 };
 </script>
-<style>
-.demo {
-  font-family: sans-serif;
-  border: 1px solid #eee;
-  border-radius: 2px;
-  padding: 20px 30px;
-  margin-top: 1em;
-  margin-bottom: 40px;
-  user-select: none;
-  overflow-x: auto;
-}
+<style lang="scss" scoped>
+.home {
+  .demo {
+    font-family: sans-serif;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    padding: 20px 30px;
+    margin-top: 1em;
+    margin-bottom: 40px;
+    user-select: none;
+    overflow-x: auto;
+  }
 
-.tab-button {
-  padding: 6px 10px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  background: #f0f0f0;
-  margin-bottom: -1px;
-  margin-right: -1px;
-}
-.tab-button:hover {
-  background: #e0e0e0;
-}
-.tab-button.active {
-  background: #e0e0e0;
-}
-.tab {
-  border: 1px solid #ccc;
-  padding: 10px;
+  .tab-button {
+    padding: 6px 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background: #f0f0f0;
+    margin-bottom: -1px;
+    margin-right: -1px;
+  }
+  .tab-button:hover {
+    background: #e0e0e0;
+  }
+  .tab-button.active {
+    background: #e0e0e0;
+  }
+  .tab {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  .header-box {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>
