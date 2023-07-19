@@ -34,6 +34,9 @@ export default defineComponent({
       console.log(key, keyPath);
     },
   },
+  mounted(){
+    debugger
+  }
 });
 </script>
 <template>

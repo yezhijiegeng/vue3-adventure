@@ -1,6 +1,9 @@
 <template>
   <div class="profile">
-    <div>个人中心</div>
+    <div>
+      个人中心
+      <div>{{ desc }}</div>
+    </div>
     <el-form :model="form" label-width="120px">
       <el-form-item label="Activity name">
         <el-input v-model="form.username" />
@@ -21,7 +24,7 @@
 </template>
 <script lang="ts">
 import { onMounted, computed, reactive, defineComponent } from "vue";
-
+import person from '@/utils/person'
 // import * as moment from "moment";
 /* import * as bar from "@/types/foo/index.d.ts";
 /* 
@@ -38,13 +41,14 @@ import { onMounted, computed, reactive, defineComponent } from "vue";
 /* import moment from "@/types/moment-plugin";
 moment.foo(); */
 
-export default defineComponent({
+export default defineComponent({ 
   data() {
     return {
       form: {
         username: "",
         password: "",
       },
+      desc:''
     };
   },
   emits: {
@@ -63,5 +67,13 @@ export default defineComponent({
       this.$emit("submit", { username, password });
     },
   },
+  /* setup(){
+  }, */
+  mounted(){
+    // this.person = new person("桃子",20);
+    let personInfo =   new person("桃子",20);
+
+    this.desc = personInfo.sayHello()
+  }
 });
 </script>

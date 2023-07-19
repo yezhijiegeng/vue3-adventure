@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <AiHeader />
     <el-container>
       <el-container>
         <el-aside width="200px">
@@ -49,7 +50,6 @@
           </el-menu>
         </el-aside>
         <el-main>
-          ai 导航
           <main-page />
         </el-main>
       </el-container>
@@ -57,48 +57,57 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component'
 import { onMounted, reactive } from "vue";
-import mainPage from "./main-page/index.vue";
-const items = reactive([
-  {
-    name: "聊天对话",
-    path: "/testthree",
-  },
-  {
-    name: "图形图像",
-    path: "/testthree",
-  },
-  {
-    name: "AI办公",
-    index: 2,
-    children: [
-      {
-        name: "typescript",
-        path: "/typescript",
-      },
-      {
-        name: "Navigator two two",
-        path: "/testtwo",
-      },
-    ],
-  },
-  {
-    name: "AI学习",
-    index: 3,
-    children: [
-      {
-        name: "ai",
-        path: "/ai-nav",
-      },
-    ],
-  },
-]);
+import MainPage from "./main-page/index.vue";
+import AiHeader from './ai-header'
 
-onMounted(() => {
-  test();
-});
-function test() {}
+
+@Options({
+  components:{
+    AiHeader,
+    MainPage
+  }
+})
+export default class AiNav extends Vue { 
+  items = [
+    {
+      name: "聊天对话",
+      path: "/testthree",
+    },
+    {
+      name: "图形图像",
+      path: "/testthree",
+    },
+    {
+      name: "AI办公",
+      index: 2,
+      children: [
+        {
+          name: "typescript",
+          path: "/typescript",
+        },
+        {
+          name: "Navigator two two",
+          path: "/testtwo",
+        },
+      ],
+    },
+    {
+      name: "AI学习",
+      index: 3,
+      children: [
+        {
+          name: "ai",
+          path: "/ai-nav",
+        },
+      ],
+    },
+  ]
+
+  }
+
 </script>
 <style lang="scss" scoped>
 .home {

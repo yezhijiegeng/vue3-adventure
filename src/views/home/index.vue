@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Header />
     <el-container>
       <!-- <el-header>
         <Header />
@@ -124,6 +125,10 @@ const items = reactive([
         name: "typescript",
         path: "/typescript",
         // icon: Setting,
+      },
+      {
+        name: "设计模式",
+        path: "/desighPattern",
       },
       {
         name: "Navigator two two",

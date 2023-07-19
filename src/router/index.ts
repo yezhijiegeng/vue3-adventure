@@ -122,6 +122,10 @@ const router = createRouter({
           name: "typescript",
           path: "/typescript",
           component: () => import("../views/javascript/typescript/index.vue"),
+        },{
+          name: "desighPattern",
+          path: "/desighPattern",
+          component: () => import("../views/javascript/desigh-pattern/index.vue"),
         },
       ],
     },
@@ -133,6 +137,10 @@ const router = createRouter({
           name: "ai导航",
           path: "/ai-nav",
           component: () => import("../views/ai/ai-nav/index.vue"),
+        },{
+          name: "chatGpt",
+          path: "/chatgpt",
+          component: () => import("../views/ai/ai-nav/third-page/chatgpt/index.vue"),
         },
       ],
     },

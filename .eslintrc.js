@@ -12,4 +12,14 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
+  parser:'@typescript-eslint/parser',
+  plugins:['typescript-eslint'],
+  rules:{
+    'no-var': 'error',
+    // 优先使用interface,而不是type
+     '@typescript-eslint/consistent-type-definitions':[
+      "error",
+      "interface"
+     ]
+  }
 };
