@@ -126,6 +126,16 @@ const router = createRouter({
           name: "desighPattern",
           path: "/desighPattern",
           component: () => import("../views/javascript/desigh-pattern/index.vue"),
+        }
+      ],
+    },
+    {
+      path: "/front",
+      name: "/front",
+      children: [{
+          name: "picture",
+          path: "/picture",
+          component: () => import("../views/front/picture"),
         },
       ],
     },
@@ -142,6 +152,11 @@ const router = createRouter({
           path: "/chatgpt",
           component: () => import("../views/ai/ai-nav/third-page/chatgpt/index.vue"),
         },
+        {
+          name: "聊天",
+          path: "/chat",
+          component: () => import("../views/ai/chat/index.vue"),
+        }
       ],
     },
     /* {
@@ -218,9 +233,14 @@ const router = createRouter({
       component: () => import("@/views/profile/index.vue"),
     },
     {
+      path: "/login2",
+      name: "登录2",
+      component: () => import("@/views/profile/login/index.vue"),
+    },
+    {
       path: "/login",
       name: "登录",
-      component: () => import("@/views/profile/login/index.vue"),
+      component: () => import("@/views/login/index.vue"),
     },
   ],
 });

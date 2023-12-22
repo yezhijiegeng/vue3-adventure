@@ -1,84 +1,62 @@
 <template>
-  <div class="home">
-    <AiHeader />
-    <el-container>
-      <el-container>
-        <el-aside width="200px">
-          <el-menu>
-            <template v-for="v in items" :key="v.path">
-              <el-sub-menu v-if="v.children" :index="v.index">
-                <template #title>
-                  <!-- <el-icon><component :is="v.icon"></component></el-icon -->
-                  {{ v.name }}
-                </template>
-                <template v-for="cv in v.children" :key="cv.path">
-                  <el-submenu v-if="cv.children" :index="cv.path">
-                    <template v-for="cvc in cv.children" :key="cvc.path">
-                      <el-submenu v-if="cvc.children">
-                        <template v-slot:title>{{ cvc.name }}</template>
-                        <el-menu-item
-                          v-for="cvcv in cv.children"
-                          :key="cvcv.path"
-                          :index="cvcv.path"
-                          >{{ cvcv.name }}</el-menu-item
-                        >
-                      </el-submenu>
-                      <template v-else>
-                        <el-menu-item
-                          v-for="cvc in cv.children"
-                          :key="cvc.path"
-                          :index="cvc.path"
-                          >{{ cvc.name }}</el-menu-item
-                        >
-                      </template>
-                    </template>
-                  </el-submenu>
-                  <el-menu-item v-else :key="cv.path" :index="cv.path">
-                    <template #title>
-                      {{ cv.name }}
-                    </template>
-                  </el-menu-item>
-                </template>
-              </el-sub-menu>
-              <el-menu-item v-else :index="v.path">
-                <template #title>
-                  <!-- <el-icon><component :is="v.icon"></component></el-icon -->
-                  {{ v.name }}
-                </template>
-              </el-menu-item>
-            </template>
-          </el-menu>
-        </el-aside>
-        <el-main>
-          <main-page />
-        </el-main>
-      </el-container>
-    </el-container>
+   <div>
+    <el-menu
+      default-active="Home"
+      class="el-menu-vertical-demo"
+      @select="handleSelect"
+    >
+      <el-menu-item index="聊天">
+        <i class="el-icon-location"></i>
+        <span slot="title">聊天对话</span>
+      </el-menu-item>
+      <el-menu-item index="About">
+        <i class="el-icon-menu"></i>
+        <span slot="title">关于我们</span>
+      </el-menu-item>
+      <el-sub-menu index="2">
+       <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>导航一</span>
+        </template>
+        <menu-item
+          v-for="item in menuList"
+          :key="item.path"
+          :menu-item="item"
+        ></menu-item>
+      </el-sub-menu>
+    </el-menu>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
-import { onMounted, reactive } from "vue";
-import MainPage from "./main-page/index.vue";
-import AiHeader from './ai-header'
-
+import { Options, Vue } from 'vue-property-decorator';
+// import { ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
+import { useRouter } from 'vue-router';
 
 @Options({
+  name:'AiNav',
   components:{
-    AiHeader,
-    MainPage
   }
 })
 export default class AiNav extends Vue { 
-  items = [
+  menuList:any = [
     {
-      name: "聊天对话",
-      path: "/testthree",
+      name: "聊天",
+      path: "/ai/chat",
     },
     {
       name: "图形图像",
       path: "/testthree",
+    },
+    {
+      name: "工具",
+      // index: 2,
+      children: [
+        {
+          name: "视频转文字",
+          path: "/typescript",
+        },
+      ],
     },
     {
       name: "AI办公",
@@ -105,6 +83,13 @@ export default class AiNav extends Vue {
       ],
     },
   ]
+
+  router = useRouter();
+
+  handleSelect(index: string) {
+    debugger
+    this.router.push({ name: index });
+  }
 
   }
 

@@ -30,6 +30,12 @@ export default defineComponent({
     toProfile() {
       router.push("/profile");
     },
+    toLogin2(){
+      router.push("/login2");
+    },
+    toLogin(){
+      router.push("/login");
+    },
     handleSelect(key: string, keyPath: string[]) {
       console.log(key, keyPath);
     },
@@ -68,7 +74,8 @@ export default defineComponent({
     </div>
     <div>天气</div>
     <div class="person-center">
-      个人中心 <el-button type="button" @click="toLogin">登录</el-button>
+      个人中心 <el-button type="button" @click="toLogin2">登录2</el-button>
+      <el-button type="button" @click="toLogin">登录</el-button>
     </div>
     {{ greetingUpperCased }}
     <FancyButton>share</FancyButton>

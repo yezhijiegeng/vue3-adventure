@@ -18,7 +18,7 @@
 // import { mounted } from "vue";
 import { Options, Vue } from 'vue-class-component'
 type EventName = "click" | "scroll" | "mouseover"; // 字符串字面量类型
-import CardTemp from '@/components/CardTemp'
+import CardTemp from './CardTemp'
 
 @Options({
   name:'MainPage',

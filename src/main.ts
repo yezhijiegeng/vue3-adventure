@@ -6,6 +6,7 @@ import App from "./App.vue";
 import router from "./router";
 import plugins from "./components/common/index";
 // import i18n from "./locals";
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 import "./assets/main.css";
 
@@ -24,6 +25,10 @@ app.config.errorHandler = (err) => {
   console.log("处理错误");
   console.log(err);
 };
+
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
 
 // app.component("toDoDeleteButton",TodoDeleteButton);
 

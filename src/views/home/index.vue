@@ -131,6 +131,10 @@ const items = reactive([
         path: "/desighPattern",
       },
       {
+        name: "图形图像",
+        path: "/picture",
+      },
+      {
         name: "Navigator two two",
         path: "/testtwo",
         // icon: Setting,
