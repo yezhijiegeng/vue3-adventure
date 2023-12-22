@@ -1,13 +1,6 @@
 <template>
   <div class="ai-chat">
-    <el-card>
-      <el-input v-model="message"
-                placeholder="请输入内容"
-                clearable
-                @keydown.enter.native="sendMessage"></el-input>
-      <el-button type="primary"
-                 @click="sendMessage">发送</el-button>
-    </el-card>
+  
     <el-card>
       <div v-for="(item, index) in messages"
            :key="index">
@@ -16,6 +9,14 @@
 			}}：</span>
         <span>{{ item.content }}</span>
       </div>
+    </el-card>
+    <el-card class="opt-card">
+      <el-input v-model="message"
+                placeholder="请输入内容"
+                clearable
+                @keydown.enter.native="sendMessage"></el-input>
+      <el-button type="primary"
+                 @click="sendMessage" class="send-btn">发送</el-button>
     </el-card>
   </div>
 </template>
@@ -48,10 +49,18 @@ export default class AiChat extends Vue {
 </script>
 <style lang="scss" scoped >
 .ai-chat {
-  display: flex;
+/*   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; */
+
+  .send-btn {
+    margin-top: 1rem;
+  }
+  .opt-card {
+    position: fixed;
+    bottom: 0;
+  }
 }
 
 .el-card {
