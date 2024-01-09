@@ -1,45 +1,42 @@
 <template>
-   <div>
-    <el-menu
-      default-active="Home"
-      class="el-menu-vertical-demo"
-      @select="handleSelect"
-    >
-      <el-menu-item index="聊天">
-        <i class="el-icon-location"></i>
-        <span slot="title">聊天对话</span>
-      </el-menu-item>
-      <el-menu-item index="About">
-        <i class="el-icon-menu"></i>
-        <span slot="title">关于我们</span>
-      </el-menu-item>
-      <el-sub-menu index="2">
-       <template slot="title">
+  <div>
+    <div>
+      <el-menu default-active="Home"
+               class="el-menu-vertical-demo"
+               @select="handleSelect">
+        <el-menu-item index="聊天">
           <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <menu-item
-          v-for="item in menuList"
-          :key="item.path"
-          :menu-item="item"
-        ></menu-item>
-      </el-sub-menu>
-    </el-menu>
+          <span slot="title">聊天对话</span>
+        </el-menu-item>
+        <el-menu-item index="About">
+          <i class="el-icon-menu"></i>
+          <span slot="title">关于我们</span>
+        </el-menu-item>
+        <el-sub-menu index="2">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>导航一</span>
+          </template>
+          <menu-item v-for="item in menuList"
+                     :key="item.path"
+                     :menu-item="item"></menu-item>
+        </el-sub-menu>
+      </el-menu>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-property-decorator';
+import { Options, Vue } from "vue-property-decorator";
 // import { ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
 
 @Options({
-  name:'AiNav',
-  components:{
-  }
+  name: "AiNav",
+  components: {},
 })
-export default class AiNav extends Vue { 
-  menuList:any = [
+export default class AiNav extends Vue {
+  menuList: any = [
     {
       name: "聊天",
       path: "/ai/chat",
@@ -82,17 +79,17 @@ export default class AiNav extends Vue {
         },
       ],
     },
-  ]
+  ];
+
+  tabPosition: "left";
 
   router = useRouter();
 
   handleSelect(index: string) {
-    debugger
+    debugger;
     this.router.push({ name: index });
   }
-
-  }
-
+}
 </script>
 <style lang="scss" scoped>
 .home {

@@ -1,6 +1,6 @@
 <template>
   <div class="ai-chat">
-
+    <!-- 顶部菜单栏 -->
     <el-card>
       <div v-for="(item, index) in messages"
            :key="index">
@@ -24,8 +24,8 @@
 <script lang="ts">
 import { Options, Ref, Vue } from "vue-property-decorator";
 import axios from "axios";
-import { tr } from "element-plus/es/locale";
-import { log } from "console";
+// import { tr } from "element-plus/es/locale";
+// import { log } from "console";
 
 @Options({
   name: "AiChat",
@@ -67,6 +67,17 @@ export default class AiChat extends Vue {
       
     }
   }
+
+  testAI(){
+    // 冒泡排序算法
+    
+
+    
+  }
+
+
+
+
 }
 </script>
 <style lang="scss" scoped >

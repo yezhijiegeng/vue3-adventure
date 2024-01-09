@@ -142,6 +142,7 @@ const router = createRouter({
     {
       path: "/ai",
       name: "/ai",
+      component: () => import("../views/ai/index.vue"),
       children: [
         {
           name: "ai导航",
@@ -156,6 +157,11 @@ const router = createRouter({
           name: "聊天",
           path: "/chat",
           component: () => import("../views/ai/chat/index.vue"),
+        },
+        {
+          name: "画画",
+          path: "/draw",
+          component: () => import("../views/ai/draw/index.vue"),
         }
       ],
     },

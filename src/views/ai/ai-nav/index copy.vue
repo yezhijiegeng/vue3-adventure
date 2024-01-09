@@ -70,7 +70,8 @@ export default class AiNav extends Vue {
       children: [
         {
           name: "ai",
-          path: "/ai-nav",
+          // path: "/ai-nav",
+          path: "/ai",
         },
       ],
     },
