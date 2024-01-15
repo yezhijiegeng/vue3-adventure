@@ -159,9 +159,21 @@ const router = createRouter({
           component: () => import("../views/ai/chat/index.vue"),
         },
         {
-          name: "画画",
+          name: "draw", // 画画
           path: "/draw",
           component: () => import("../views/ai/draw/index.vue"),
+          children:[
+            {
+              name:'model', // 模型
+              path:'model',
+              component: () => import("../views/ai/draw/models/index.vue"),
+            },
+            {
+              name:'drawCreate', // 绘画创作
+              path:'drawCreate',
+              component: () => import("../views/ai/draw/create/index.vue"),
+            }
+          ]
         }
       ],
     },
