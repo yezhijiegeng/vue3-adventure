@@ -15,28 +15,26 @@
         <el-tab-pane label="喜欢" name="like"></el-tab-pane>
       </el-tabs>
     </div>
-    <el-row>
-    <el-col
-      v-for="(o, index) in 2"
-      :key="o"
-      :span="8"
-      :offset="index > 0 ? 2 : 0"
-    >
-      <el-card :body-style="{ padding: '0px' }">
-        <img
-          src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-          class="image"
-        />
-        <div style="padding: 14px">
-          <span>Yummy hamburger</span>
-          <div class="bottom">
-            <time class="time">{{ currentDate }}</time>
-            <el-button text class="button">Operating</el-button>
+    <el-row class="image-list">
+      <el-col v-for="(item, index) in imageList" :key="index" :span="6">
+        <el-card :body-style="{ padding: '0px' }" class="card">
+          <div class="image-box">
+            <img :src="item.url" class="image" />
+            <!-- <el-image
+              :src="item.url"
+              :fit="fit"
+            ></el-image> -->
           </div>
-        </div>
-      </el-card>
-    </el-col>
-  </el-row>
+          <div style="padding: 14px">
+            <span>Yummy hamburger</span>
+            <div class="bottom">
+              <time class="time">{{ currentDate }}</time>
+              <el-button text class="button">Operating</el-button>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script>
@@ -53,6 +51,51 @@ export default class Models extends Vue {
     { name: "SD 风格" },
   ];
   activeName = "hot";
+
+  fit = 'fill'
+
+  imageList = [
+    {
+      id: "101",
+      url: "https://gd-hbimg.huaban.com/b54a3d5b013237a891e695a68832dcf3ef7914d62144ab-XtFq9q_fw1200webp",
+      largeUrl:''
+    },
+    {
+      id: "102",
+      url: "https://gd-hbimg.huaban.com/b54a3d5b013237a891e695a68832dcf3ef7914d62144ab-XtFq9q_fw1200webp",
+      largeUrl:''
+    },
+    {
+      id: "103",
+      url: "https://gd-hbimg.huaban.com/aceb6e03e8385671ff035e0629c7c59eb5942aca36af6d-WTOlRQ_fw480webp",
+      largeUrl:''
+    },
+    {
+      id: "104",
+      url: "https://gd-hbimg.huaban.com/aceb6e03e8385671ff035e0629c7c59eb5942aca36af6d-WTOlRQ_fw480webp",
+      largeUrl:''
+    },
+    {
+      id: "105",
+      url: "https://gd-hbimg.huaban.com/aceb6e03e8385671ff035e0629c7c59eb5942aca36af6d-WTOlRQ_fw480webp",
+      largeUrl:''
+    },
+    {
+      id: "106",
+      url: "https://gd-hbimg.huaban.com/aceb6e03e8385671ff035e0629c7c59eb5942aca36af6d-WTOlRQ_fw480webp",
+      largeUrl:''
+    },
+    {
+      id: "107",
+      url: "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw480webp",
+      largeUrl:'https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw1200webp'
+    },
+    {
+      id: "108",
+      url: "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw480webp",
+      largeUrl:'https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw1200webp'
+    },
+  ];
 
   handleClick(tab, event) {
     const name = tab.props.name;
@@ -80,10 +123,21 @@ export default class Models extends Vue {
       padding: 0;
       min-height: auto;
     }
-
-    .image {
-      width: 100%;
-      display: block;
+  }
+  .image-list {
+    .card {
+      .image-box {
+        height: 270px;
+        width: auto;
+      }
+      .image {
+        // height: 72px;
+        // max-width: 100%;
+        // max-height: 100%;
+        // display: block;
+        // max-height: 100%;
+        // height: 100%;
+      }
     }
   }
 }
