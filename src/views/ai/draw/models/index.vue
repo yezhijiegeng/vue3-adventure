@@ -15,21 +15,17 @@
         <el-tab-pane label="喜欢" name="like"></el-tab-pane>
       </el-tabs>
     </div>
-    <el-row class="image-list">
-      <el-col v-for="(item, index) in imageList" :key="index" :span="6">
+    <el-row class="image-list" :gutter="20">
+      <el-col v-for="(item, index) in imageList" :key="index" :span="4" class="card-box">
         <el-card :body-style="{ padding: '0px' }" class="card">
           <div class="image-box">
             <img :src="item.url" class="image" />
-            <!-- <el-image
-              :src="item.url"
-              :fit="fit"
-            ></el-image> -->
           </div>
           <div style="padding: 14px">
-            <span>Yummy hamburger</span>
+            <span>{{ item.title }}</span>
             <div class="bottom">
               <time class="time">{{ currentDate }}</time>
-              <el-button text class="button">Operating</el-button>
+              <el-button text class="button">{{ item.desc }}</el-button>
             </div>
           </div>
         </el-card>
@@ -58,7 +54,12 @@ export default class Models extends Vue {
     {
       id: "101",
       url: "https://gd-hbimg.huaban.com/b54a3d5b013237a891e695a68832dcf3ef7914d62144ab-XtFq9q_fw1200webp",
-      largeUrl:''
+      largeUrl:'',
+      title:'校园女孩',
+      desc:'二次元风格',
+      avatar:'',
+      authorUrl:'',
+      loveCount:0
     },
     {
       id: "102",
@@ -125,12 +126,19 @@ export default class Models extends Vue {
     }
   }
   .image-list {
+    .card-box {
+      padding-bottom: 10px;
+    }
     .card {
       .image-box {
-        height: 270px;
+        height: 200px;
         width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .image {
+        height: 150px;
         // height: 72px;
         // max-width: 100%;
         // max-height: 100%;
