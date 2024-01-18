@@ -3,7 +3,7 @@
     <div>
       <el-input v-model="input" placeholder="输入模型名称" />
     </div>
-    <div>
+    <div class="labels">
       <el-tag class="ml-2" type="info" v-for="(item, i) in tags" :key="i">{{
         item.name
       }}</el-tag>
@@ -106,6 +106,13 @@ export default class Models extends Vue {
 </script>
 <style lang="scss">
 .models {
+  padding: 1rem;
+  .labels {
+    margin: 10px 0;
+    .el-tag  {
+      margin-right: 0.5rem;
+    }
+  }
   .picture {
     .time {
       font-size: 12px;
