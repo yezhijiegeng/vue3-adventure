@@ -16,10 +16,22 @@
       </el-tabs>
     </div>
     <el-row class="image-list" :gutter="20">
-      <el-col v-for="(item, index) in imageList" :key="index" :span="4" class="card-box">
+      <el-col
+        v-for="(item, index) in imageList"
+        :key="index"
+        :span="4"
+        class="card-box"
+      >
         <el-card :body-style="{ padding: '0px' }" class="card">
           <div class="image-box">
-            <img :src="item.url" class="image" />
+            <!-- <img :src="item.url" class="image" /> -->
+            
+            <el-image
+              style="width: 100px; height: 100px"
+              :src="item.url"
+              :fit="'scale-down'"
+              :preview-src-list="[item.largeUrl]"
+            ></el-image>
           </div>
           <div style="padding: 14px">
             <span>{{ item.title }}</span>
@@ -27,6 +39,16 @@
               <time class="time">{{ currentDate }}</time>
               <el-button text class="button">{{ item.desc }}</el-button>
             </div>
+          </div>
+          <div class="opitons">
+            <span class="avatar">
+              <span>头像</span>
+              <span>小语</span>
+            </span>
+            <span @click="like">
+              <i class="iconfont icon-love"></i>
+              <span class="like-number">55</span>
+            </span>
           </div>
         </el-card>
       </el-col>
@@ -48,53 +70,78 @@ export default class Models extends Vue {
   ];
   activeName = "hot";
 
-  fit = 'fill'
+  fit = "fill";
 
   imageList = [
     {
       id: "101",
       url: "https://gd-hbimg.huaban.com/b54a3d5b013237a891e695a68832dcf3ef7914d62144ab-XtFq9q_fw1200webp",
-      largeUrl:'',
-      title:'校园女孩',
-      desc:'二次元风格',
-      avatar:'',
-      authorUrl:'',
-      loveCount:0
+      largeUrl: "",
+      title: "校园女孩",
+      desc: "二次元风格",
+      avatar: "",
+      authorUrl: "",
+      loveCount: 0,
     },
     {
       id: "102",
       url: "https://gd-hbimg.huaban.com/b54a3d5b013237a891e695a68832dcf3ef7914d62144ab-XtFq9q_fw1200webp",
-      largeUrl:''
+      largeUrl: "",
     },
     {
       id: "103",
       url: "https://gd-hbimg.huaban.com/aceb6e03e8385671ff035e0629c7c59eb5942aca36af6d-WTOlRQ_fw480webp",
-      largeUrl:''
+      largeUrl: "",
     },
     {
       id: "104",
       url: "https://gd-hbimg.huaban.com/aceb6e03e8385671ff035e0629c7c59eb5942aca36af6d-WTOlRQ_fw480webp",
-      largeUrl:''
+      largeUrl: "",
     },
     {
       id: "105",
       url: "https://gd-hbimg.huaban.com/aceb6e03e8385671ff035e0629c7c59eb5942aca36af6d-WTOlRQ_fw480webp",
-      largeUrl:''
+      largeUrl: "",
     },
     {
       id: "106",
       url: "https://gd-hbimg.huaban.com/aceb6e03e8385671ff035e0629c7c59eb5942aca36af6d-WTOlRQ_fw480webp",
-      largeUrl:''
+      largeUrl: "",
     },
     {
       id: "107",
       url: "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw480webp",
-      largeUrl:'https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw1200webp'
+      largeUrl:
+        "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw1200webp",
     },
     {
       id: "108",
       url: "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw480webp",
-      largeUrl:'https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw1200webp'
+      largeUrl:
+        "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw1200webp",
+    },
+    {
+      id: "109",
+      url: "https://gd-hbimg.huaban.com/49eac5a9ae4ffb0588e6bd4c3d91172d494c496c751c6-uFTAc4_fw1200webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/49eac5a9ae4ffb0588e6bd4c3d91172d494c496c751c6-uFTAc4_fw1200",
+    },
+    {
+      id: "110",
+      url: "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H_fw1200webp",
+      largeUrl: [
+        "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H",
+      ]
+    },
+    {
+      id: "111",
+      url: "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw480webp",
+      largeUrl: "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw1200",
+      title: "飞翔的女孩",
+      desc: "宫崎骏风格",
+      avatar: "",
+      authorUrl: "",
+      loveCount: 0,
     },
   ];
 
@@ -102,58 +149,11 @@ export default class Models extends Vue {
     const name = tab.props.name;
     console.log(name);
   }
+  like(item){
+    console.log(`I like`,item);
+  }
 }
 </script>
 <style lang="scss">
-.models {
-  padding: 1rem;
-  .labels {
-    margin: 10px 0;
-    .el-tag  {
-      margin-right: 0.5rem;
-    }
-  }
-  .picture {
-    .time {
-      font-size: 12px;
-      color: #999;
-    }
-
-    .bottom {
-      margin-top: 13px;
-      line-height: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .button {
-      padding: 0;
-      min-height: auto;
-    }
-  }
-  .image-list {
-    .card-box {
-      padding-bottom: 10px;
-    }
-    .card {
-      .image-box {
-        height: 200px;
-        width: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .image {
-        height: 150px;
-        // height: 72px;
-        // max-width: 100%;
-        // max-height: 100%;
-        // display: block;
-        // max-height: 100%;
-        // height: 100%;
-      }
-    }
-  }
-}
+@import './index.scss'
 </style>

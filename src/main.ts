@@ -9,6 +9,7 @@ import plugins from "./components/common/index";
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 import "./assets/main.css";
+import '@/assets/fonts/iconfont.css'
 
 const app = createApp(App);
 
