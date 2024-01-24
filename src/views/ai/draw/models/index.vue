@@ -23,31 +23,30 @@
         class="card-box"
       >
         <el-card :body-style="{ padding: '0px' }" class="card">
-          <div class="image-box">
+          <div class="card__image-box">
             <!-- <img :src="item.url" class="image" /> -->
-            
+            <!-- style="width: 100px; height: 100px" -->
             <el-image
-              style="width: 100px; height: 100px"
+              style="height: 180px; "
               :src="item.url"
               :fit="'scale-down'"
               :preview-src-list="[item.largeUrl]"
             ></el-image>
           </div>
-          <div style="padding: 14px">
-            <span>{{ item.title }}</span>
-            <div class="bottom">
-              <time class="time">{{ currentDate }}</time>
-              <el-button text class="button">{{ item.desc }}</el-button>
+          <div class="card__info">
+            <span class="card__info--title">{{ item.title }}</span>
+            <div class="card__info--desc">
+              {{ item.desc }}
             </div>
           </div>
-          <div class="opitons">
-            <span class="avatar">
+          <div class="card__bottom">
+            <span class="card__bottom--avatar">
               <span>头像</span>
               <span>小语</span>
             </span>
             <span @click="like">
-              <i class="iconfont icon-love"></i>
-              <span class="like-number">55</span>
+              <i class="iconfont icon-love card__bottom--icon"></i>
+              <span class="like-number card__bottom--number">55</span>
             </span>
           </div>
         </el-card>
@@ -131,12 +130,13 @@ export default class Models extends Vue {
       url: "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H_fw1200webp",
       largeUrl: [
         "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H",
-      ]
+      ],
     },
     {
       id: "111",
       url: "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw480webp",
-      largeUrl: "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw1200",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw1200",
       title: "飞翔的女孩",
       desc: "宫崎骏风格",
       avatar: "",
@@ -149,11 +149,11 @@ export default class Models extends Vue {
     const name = tab.props.name;
     console.log(name);
   }
-  like(item){
-    console.log(`I like`,item);
+  like(item) {
+    console.log(`I like`, item);
   }
 }
 </script>
 <style lang="scss">
-@import './index.scss'
+@import "./index.scss";
 </style>

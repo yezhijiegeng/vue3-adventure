@@ -30,16 +30,39 @@
       padding-bottom: 10px;
 
       .card {
-        .image-box {
+        padding: 1rem;
+        &__image-box {
           height: 200px;
           width: auto;
           display: flex;
           justify-content: center;
           align-items: center;
+          img {
+            // width: 100px;
+            // height: 150px;
+            // width: auto;
+          }
         }
-        .opitons {
+        &__info {
+          height: 3rem;
+          // line-height: 3rem;
+          &--title {
+            // font-size: 14px;
+            font-family: "Microsoft YaHei";
+          }
+          &--desc {
+            font-size: 12px;
+            font-family: "Microsoft YaHei";
+            color: #999;
+          }
+        }
+
+        &__bottom {
           display: flex;
           justify-content: space-between;
+          &--icon {
+            margin-right: 3px;
+          }
         }
       }
       .image {
