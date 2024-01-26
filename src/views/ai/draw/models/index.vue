@@ -27,7 +27,7 @@
             <!-- <img :src="item.url" class="image" /> -->
             <!-- style="width: 100px; height: 100px" -->
             <el-image
-              style="height: 180px; "
+              style="height: 180px"
               :src="item.url"
               :fit="'scale-down'"
               :preview-src-list="[item.largeUrl]"
@@ -45,7 +45,7 @@
               <span>小语</span>
             </span>
             <span @click="like">
-              <i class="iconfont icon-love card__bottom--icon"></i>
+              <i :class="`iconfont icon-love card__bottom--icon ${item.isLike ? 'color-pink':''}`" @click="like(item)"></i>
               <span class="like-number card__bottom--number">55</span>
             </span>
           </div>
@@ -142,6 +142,7 @@ export default class Models extends Vue {
       avatar: "",
       authorUrl: "",
       loveCount: 0,
+      isLike: true,
     },
   ];
 
@@ -149,8 +150,8 @@ export default class Models extends Vue {
     const name = tab.props.name;
     console.log(name);
   }
-  like(item) {
-    console.log(`I like`, item);
+  like(v) {
+    this.imageList.find(item=>item.id === v.id).isLike = !v.isLike 
   }
 }
 </script>
