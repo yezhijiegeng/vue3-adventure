@@ -8,7 +8,7 @@
         item.name
       }}</el-tag>
     </div>
-    <div class="picture">
+    <div class="picture sticky-header">
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="最新" name="new"></el-tab-pane>
         <el-tab-pane label="热门" name="hot"></el-tab-pane>
@@ -107,6 +107,154 @@ export default class Models extends Vue {
       url: "https://gd-hbimg.huaban.com/aceb6e03e8385671ff035e0629c7c59eb5942aca36af6d-WTOlRQ_fw480webp",
       largeUrl: "",
     },
+    {
+      id: "107",
+      url: "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw1200webp",
+    },
+    {
+      id: "108",
+      url: "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw1200webp",
+    },
+    {
+      id: "109",
+      url: "https://gd-hbimg.huaban.com/49eac5a9ae4ffb0588e6bd4c3d91172d494c496c751c6-uFTAc4_fw1200webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/49eac5a9ae4ffb0588e6bd4c3d91172d494c496c751c6-uFTAc4_fw1200",
+    },
+    {
+      id: "110",
+      url: "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H_fw1200webp",
+      largeUrl: [
+        "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H",
+      ],
+    },
+    {
+      id: "111",
+      url: "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw1200",
+      title: "飞翔的女孩",
+      desc: "宫崎骏风格",
+      avatar: "",
+      authorUrl: "",
+      loveCount: 0,
+      isLike: true,
+    },
+    {
+      id: "107",
+      url: "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw1200webp",
+    },
+    {
+      id: "108",
+      url: "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw1200webp",
+    },
+    {
+      id: "109",
+      url: "https://gd-hbimg.huaban.com/49eac5a9ae4ffb0588e6bd4c3d91172d494c496c751c6-uFTAc4_fw1200webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/49eac5a9ae4ffb0588e6bd4c3d91172d494c496c751c6-uFTAc4_fw1200",
+    },
+    {
+      id: "110",
+      url: "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H_fw1200webp",
+      largeUrl: [
+        "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H",
+      ],
+    },
+    {
+      id: "111",
+      url: "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw1200",
+      title: "飞翔的女孩",
+      desc: "宫崎骏风格",
+      avatar: "",
+      authorUrl: "",
+      loveCount: 0,
+      isLike: true,
+    },,
+    {
+      id: "107",
+      url: "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw1200webp",
+    },
+    {
+      id: "108",
+      url: "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw1200webp",
+    },
+    {
+      id: "109",
+      url: "https://gd-hbimg.huaban.com/49eac5a9ae4ffb0588e6bd4c3d91172d494c496c751c6-uFTAc4_fw1200webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/49eac5a9ae4ffb0588e6bd4c3d91172d494c496c751c6-uFTAc4_fw1200",
+    },
+    {
+      id: "110",
+      url: "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H_fw1200webp",
+      largeUrl: [
+        "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H",
+      ],
+    },
+    {
+      id: "111",
+      url: "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw1200",
+      title: "飞翔的女孩",
+      desc: "宫崎骏风格",
+      avatar: "",
+      authorUrl: "",
+      loveCount: 0,
+      isLike: true,
+    },,
+    {
+      id: "107",
+      url: "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw1200webp",
+    },
+    {
+      id: "108",
+      url: "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/a8127ca5485c830ebd6982c41110d525ed737331b8f29-mJ9ufy_fw1200webp",
+    },
+    {
+      id: "109",
+      url: "https://gd-hbimg.huaban.com/49eac5a9ae4ffb0588e6bd4c3d91172d494c496c751c6-uFTAc4_fw1200webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/49eac5a9ae4ffb0588e6bd4c3d91172d494c496c751c6-uFTAc4_fw1200",
+    },
+    {
+      id: "110",
+      url: "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H_fw1200webp",
+      largeUrl: [
+        "https://gd-hbimg.huaban.com/f315a646796f3f6b99d310d845b073494626fd3b55d68-UOnh0H",
+      ],
+    },
+    {
+      id: "111",
+      url: "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw480webp",
+      largeUrl:
+        "https://gd-hbimg.huaban.com/02644abc2778ee509e795ca4d8e78d4201f0b7be1abf48-kQNbJ8_fw1200",
+      title: "飞翔的女孩",
+      desc: "宫崎骏风格",
+      avatar: "",
+      authorUrl: "",
+      loveCount: 0,
+      isLike: true,
+    },,
     {
       id: "107",
       url: "https://gd-hbimg.huaban.com/2642c2d3a691a3b622e4122c9b3ca851f0c1212a1e1029-htsRGI_fw480webp",

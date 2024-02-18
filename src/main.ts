@@ -10,12 +10,14 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 import "./assets/main.css";
 import '@/assets/fonts/iconfont.css'
+import GesturePassword from '@alitajs/gesture-password-vue';
 
 const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
 app.use(ElementPlus);
+app.use(GesturePassword);
 app.use(plugins);
 // app.use(i18n);
 

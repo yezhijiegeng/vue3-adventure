@@ -6,6 +6,14 @@
       margin-right: 0.5rem;
     }
   }
+  .sticky-header {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0; /* 当内容滚动到离顶部为0px时，元素会固定在顶部 */
+    z-index: 1; /* 设置一个较高的z-index以确保元素在其他内容之上 */
+    background: #fff;
+  }
+
   .picture {
     .time {
       font-size: 12px;

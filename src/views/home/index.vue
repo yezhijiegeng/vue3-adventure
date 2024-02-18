@@ -154,12 +154,12 @@ const items = reactive([
     // icon: Message,
   },
   {
-    name: "Navigator three",
-    path: "/testthree",
+    name: "功能",
+    path: "/functions",
     // icon: Message,
   },
   {
-    name: "Navigator five",
+    name: "移动端",
     path: "/testfive",
     // icon: Message,
   },

@@ -141,7 +141,7 @@ const router = createRouter({
     },
     {
       path: "/ai",
-      name: "/ai",
+      name: "ai",
       component: () => import("../views/ai/index.vue"),
       children: [
         {
@@ -176,6 +176,14 @@ const router = createRouter({
           ]
         }
       ],
+    },
+    {
+      name:'functions',
+      path: "/functions",
+      component: () => import("../views/functions/index.vue"),
+      meta:{
+        title:'功能',
+      }
     },
     /* {
       path: "/examples",
