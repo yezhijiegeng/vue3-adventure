@@ -122,17 +122,20 @@ const router = createRouter({
           name: "typescript",
           path: "/typescript",
           component: () => import("../views/javascript/typescript/index.vue"),
-        },{
+        },
+        {
           name: "desighPattern",
           path: "/desighPattern",
-          component: () => import("../views/javascript/desigh-pattern/index.vue"),
-        }
+          component: () =>
+            import("../views/javascript/desigh-pattern/index.vue"),
+        },
       ],
     },
     {
       path: "/front",
       name: "/front",
-      children: [{
+      children: [
+        {
           name: "picture",
           path: "/picture",
           component: () => import("../views/front/picture"),
@@ -148,10 +151,12 @@ const router = createRouter({
           name: "ai导航",
           path: "/ai-nav",
           component: () => import("../views/ai/ai-nav/index.vue"),
-        },{
+        },
+        {
           name: "chatGpt",
           path: "/chatgpt",
-          component: () => import("../views/ai/ai-nav/third-page/chatgpt/index.vue"),
+          component: () =>
+            import("../views/ai/ai-nav/third-page/chatgpt/index.vue"),
         },
         {
           name: "聊天",
@@ -162,25 +167,25 @@ const router = createRouter({
           name: "draw", // 画画
           path: "/draw",
           component: () => import("../views/ai/draw/index.vue"),
-          children:[
+          children: [
             {
-              name:'model', // 模型
-              path:'model',
+              name: "model", // 模型
+              path: "model",
               component: () => import("../views/ai/draw/models/index.vue"),
             },
             {
-              name:'drawCreate', // 绘画创作
-              path:'drawCreate',
+              name: "drawCreate", // 绘画创作
+              path: "drawCreate",
               component: () => import("../views/ai/draw/create/index.vue"),
-            }
-          ]
-        }
+            },
+          ],
+        },
       ],
     },
     {
       path: "/admin",
       name: "admin",
-      component: () => import("../views/admin/index.vue"),
+      component: () => import("../views/ai/index.vue"),
       // children: [
       //   {
       //     name: "ai-admin", // ai 导航管理
@@ -190,12 +195,12 @@ const router = createRouter({
       // ],
     },
     {
-      name:'functions',
+      name: "functions",
       path: "/functions",
       component: () => import("../views/functions/index.vue"),
-      meta:{
-        title:'功能',
-      }
+      meta: {
+        title: "功能",
+      },
     },
     /* {
       path: "/examples",

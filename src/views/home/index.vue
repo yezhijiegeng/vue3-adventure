@@ -154,6 +154,18 @@ const items = reactive([
     // icon: Message,
   },
   {
+    name: "admin",
+    // index: 3,
+    children: [
+      {
+        name: "ai-admin",
+        path: "/ai-admin",
+      },
+      // path: "/ai",
+    ],
+    // icon: Message,
+  },
+  {
     name: "功能",
     path: "/functions",
     // icon: Message,
