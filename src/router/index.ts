@@ -181,13 +181,13 @@ const router = createRouter({
       path: "/admin",
       name: "admin",
       component: () => import("../views/admin/index.vue"),
-      // children: [
-      //   {
-      //     name: "ai-admin", // ai 导航管理
-      //     path: "/ai-admin",
-      //     component: () => import("../views/admin/ai-admin/index.vue"),
-      //   },
-      // ],
+      children: [
+        {
+          name: "ai-admin", // ai 导航管理
+          path: "/ai-admin",
+          component: () => import("../views/admin/ai-admin/index.vue"),
+        },
+      ],
     },
     {
       name:'functions',
