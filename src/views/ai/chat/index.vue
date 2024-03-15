@@ -1,25 +1,31 @@
 <template>
   <div class="ai-chat">
     <!-- 顶部菜单栏 -->
-    <el-card>
-      <div v-for="(item, index) in messages" :key="index">
-        <span :style="{ color: item.user === 'user' ? '#409EFF' : '#67C23A' }"
-          >{{ item.user === "user" ? "我" : "AI" }}：</span
+    <div class="ai-chat__list">列表1</div>
+    <div class="ai-chat__chat">
+      <el-card >
+        <div v-for="(item, index) in messages" :key="index">
+          <span :style="{ color: item.user === 'user' ? '#409EFF' : '#67C23A' }"
+            >{{ item.user === "user" ? "我" : "AI" }}：</span
+          >
+          <span>{{ item.content }}</span>
+        </div>
+      </el-card>
+      <!-- <el-card class="ai-chat__chat--opt-card"> -->
+      <div class="ai-chat__chat--opt-card">
+        <el-input
+          v-model="inputMessage"
+          placeholder="请输入内容"
+          clearable
+          @keydown.enter.native="sendMessage5"
+          type="textarea"
+        ></el-input>
+        <el-button type="primary" @click="sendMessage5" class="ai-chat__chat--send-btn"
+          >发送</el-button
         >
-        <span>{{ item.content }}</span>
-      </div>
-    </el-card>
-    <el-card class="opt-card">
-      <el-input
-        v-model="inputMessage"
-        placeholder="请输入内容"
-        clearable
-        @keydown.enter.native="sendMessage5"
-      ></el-input>
-      <el-button type="primary" @click="sendMessage5" class="send-btn"
-        >发送</el-button
-      >
-    </el-card>
+      <!-- </el-card> -->
+     </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -160,22 +166,27 @@ export default class AiChat extends Vue {
 </script>
 <style lang="scss" scoped>
 .ai-chat {
+  padding: 10px;
+  display: flex;
   /*   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; */
 
-  .send-btn {
-    margin-top: 1rem;
+  &__list {
+    flex: 1;
   }
-  .opt-card {
-    position: fixed;
-    bottom: 0;
+  &__chat {
+    flex: 5;
+    
+    &--opt-card {
+      position: fixed;
+      bottom: 10px;
+      width: 80%;
+    }
+    &--send-btn {
+      margin-top: 1rem;
+    }
   }
-}
-
-.el-card {
-  width: 60%;
-  margin-right: 20px;
 }
 </style>
