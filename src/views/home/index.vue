@@ -149,6 +149,10 @@ const items = reactive([
         name: "ai",
         path: "/ai-nav",
       },
+      {
+        name: "AI导航",
+        path: "/ai-nav",
+      },
       // path: "/ai",
     ],
     // icon: Message,
@@ -160,6 +164,9 @@ const items = reactive([
       {
         name: "ai-admin",
         path: "/ai-admin",
+      }, {
+        name: "系统配置",
+        path: "/config",
       },
       // path: "/ai",
     ],
@@ -167,7 +174,19 @@ const items = reactive([
   },
   {
     name: "功能",
+    index: 4,
     path: "/functions",
+    children: [
+      {
+        name: "pdf",
+        path: "/pdf",
+      },
+      {
+        name: "file",
+        path: "/file",
+      },
+      // path: "/ai",
+    ],
     // icon: Message,
   },
   {

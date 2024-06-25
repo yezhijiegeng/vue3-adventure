@@ -2,7 +2,7 @@
   <div>
     <!-- 头部菜单 -->
     <div>
-      <span class="logo"> </span>
+      <span class="logo"  @click="menuClick('ai-nav')"></span>
       <!-- <span class="logo">达芬<span class="peach">桃</span>AI</span> -->
       <el-button @click="menuClick('draw')">画画</el-button>
       <el-button @click="menuClick('chat')">聊天</el-button>
@@ -24,14 +24,15 @@ export default class AiHome extends Vue {
 
   
   router = useRouter();
-  tabPosition: "left";
+  tabPosition:string="left";
 
-  menuClick(val){
+  menuClick(val:string){
     if(val === 'chat'){
-      this.router.push({ path: '/chat' });
+      // this.router.push({ path: '/chat' });
+      window.open('http://localhost:3000/','_blank')
     }else if(val === 'draw'){
       this.router.push({ path: '/draw' });
-    }else if(val === 'nav'){
+    }else if(val === 'ai-nav'){
       debugger
       this.router.push({ path: '/ai-nav' });
     }

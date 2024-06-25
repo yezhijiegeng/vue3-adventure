@@ -103,6 +103,12 @@ const items = reactive([
     name: "基础",
     // icon: IconMenu,
     index: 1,
+    children: [
+      {
+        name: "响应式基础",
+        path: "/vue/responseBase",
+      },
+    ],
     /* children: [
       {
         name: "处理用户输入",
@@ -144,6 +150,15 @@ const items = reactive([
       {
         name: "TypeScript 与选项式 API",
         path: "/vue3/guide/optionApi",
+      },
+    ],
+  },
+  {
+    name: "vueUse",
+    children: [
+      {
+        name: "vueUse",
+        path: "/vue/vueUse",
       },
     ],
   },

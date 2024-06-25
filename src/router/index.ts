@@ -46,14 +46,6 @@ const router = createRouter({
                 import("../views/vue3/guide/typescript/optionApi/index.vue"),
             },
           ],
-          // icon: Setting,
-          /* children: [
-            {
-              path: "info",
-              name: "info",
-              component: () => import("../views/InfoView.vue"),
-            },
-          ], */
         },
         /* 互动教程 start */
         {
@@ -113,6 +105,18 @@ const router = createRouter({
 
         /* 互动教程 end */
       ],
+    },
+    {
+      name: "vue",
+      path: "/vue",
+      component: () => import("../views/vue/index.vue"),
+      children: [
+        {
+          path: "vueUse",
+          name: "vueUse",
+          component: () => import("../views/vue/vueUse/index.vue"),
+        }
+      ]
     },
     {
       path: "/javascript",
@@ -186,6 +190,13 @@ const router = createRouter({
           name: "ai-admin", // ai 导航管理
           path: "/ai-admin",
           component: () => import("../views/admin/ai-admin/index.vue"),
+        },{
+          name: "config", // 系统配置
+          path: "/config",
+          meta:{
+            title:'系统配置',
+          },
+          component: () => import("../views/admin/config/index.vue"),
         },
       ],
     },
@@ -195,7 +206,19 @@ const router = createRouter({
       component: () => import("../views/functions/index.vue"),
       meta:{
         title:'功能',
-      }
+      },
+      children: [
+        {
+          name: "pdf", 
+          path: "/pdf",
+          component: () => import("../views/functions/pdf/index.vue"),
+        },
+        {
+          name: "file", 
+          path: "/file",
+          component: () => import("../views/functions/file/index.vue"),
+        },
+      ],
     },
     /* {
       path: "/examples",

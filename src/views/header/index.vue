@@ -79,7 +79,7 @@ export default defineComponent({
     </div>
     {{ greetingUpperCased }}
     <FancyButton>share</FancyButton>
-    <button @click="toProfile">个人中心</button>
+    <el-link @click="toProfile">个人中心</el-link>
   </div>
 </template>
 
