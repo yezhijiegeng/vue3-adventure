@@ -27,6 +27,7 @@ onMounted(() => {
 
   const { isFullscreen, toggle } = useFullscreen();
 
+
   return {
     color,
     count,

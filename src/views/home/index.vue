@@ -185,6 +185,23 @@ const items = reactive([
         name: "file",
         path: "/file",
       },
+      {
+        name: "多级表头",
+        path: "/multiLevelHeader",
+      },
+      // path: "/ai",
+    ],
+    // icon: Message,
+  },
+  {
+    name: "产品",
+    index: 5,
+    path: "/product",
+    children: [
+      {
+        name: "AI导航",
+        path: "/aiNav",
+      },
       // path: "/ai",
     ],
     // icon: Message,

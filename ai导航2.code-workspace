@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"explorer.confirmDragAndDrop": false,
+		"terminal.integrated.fontSize": 14,
+		"explorer.confirmDelete": false,
+		"terminal.explorerKind": "external"
+	}
+}

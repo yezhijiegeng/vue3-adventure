@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import Home from "../views/home/index.vue";
+import { title } from "process";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -89,6 +90,15 @@ const router = createRouter({
               path: "crud",
               component: () => import("../views/vue3/examples/crud/index.vue"),
             },
+            {
+              name: "declareRender",
+              path: "declareRender",
+              meta: {
+                title: "声明式渲染",
+              },
+              component: () =>
+                import("../views/vue3/examples/declareRender/index.vue"),
+            },
             /* {
               path: "attributeBind",
               name: "Attribute 绑定",
@@ -115,8 +125,8 @@ const router = createRouter({
           path: "vueUse",
           name: "vueUse",
           component: () => import("../views/vue/vueUse/index.vue"),
-        }
-      ]
+        },
+      ],
     },
     {
       path: "/javascript",
@@ -126,17 +136,20 @@ const router = createRouter({
           name: "typescript",
           path: "/typescript",
           component: () => import("../views/javascript/typescript/index.vue"),
-        },{
+        },
+        {
           name: "desighPattern",
           path: "/desighPattern",
-          component: () => import("../views/javascript/desigh-pattern/index.vue"),
-        }
+          component: () =>
+            import("../views/javascript/desigh-pattern/index.vue"),
+        },
       ],
     },
     {
       path: "/front",
       name: "/front",
-      children: [{
+      children: [
+        {
           name: "picture",
           path: "/picture",
           component: () => import("../views/front/picture"),
@@ -152,10 +165,12 @@ const router = createRouter({
           name: "ai导航",
           path: "/ai-nav",
           component: () => import("../views/ai/ai-nav/index.vue"),
-        },{
+        },
+        {
           name: "chatGpt",
           path: "/chatgpt",
-          component: () => import("../views/ai/ai-nav/third-page/chatgpt/index.vue"),
+          component: () =>
+            import("../views/ai/ai-nav/third-page/chatgpt/index.vue"),
         },
         {
           name: "聊天",
@@ -166,19 +181,19 @@ const router = createRouter({
           name: "draw", // 画画
           path: "/draw",
           component: () => import("../views/ai/draw/index.vue"),
-          children:[
+          children: [
             {
-              name:'model', // 模型
-              path:'model',
+              name: "model", // 模型
+              path: "model",
               component: () => import("../views/ai/draw/models/index.vue"),
             },
             {
-              name:'drawCreate', // 绘画创作
-              path:'drawCreate',
+              name: "drawCreate", // 绘画创作
+              path: "drawCreate",
               component: () => import("../views/ai/draw/create/index.vue"),
-            }
-          ]
-        }
+            },
+          ],
+        },
       ],
     },
     {
@@ -190,33 +205,61 @@ const router = createRouter({
           name: "ai-admin", // ai 导航管理
           path: "/ai-admin",
           component: () => import("../views/admin/ai-admin/index.vue"),
-        },{
+        },
+        {
           name: "config", // 系统配置
           path: "/config",
-          meta:{
-            title:'系统配置',
+          meta: {
+            title: "系统配置",
           },
           component: () => import("../views/admin/config/index.vue"),
         },
       ],
     },
     {
-      name:'functions',
+      name: "functions",
       path: "/functions",
       component: () => import("../views/functions/index.vue"),
-      meta:{
-        title:'功能',
+      meta: {
+        title: "功能",
       },
       children: [
         {
-          name: "pdf", 
+          name: "pdf",
           path: "/pdf",
           component: () => import("../views/functions/pdf/index.vue"),
         },
         {
-          name: "file", 
+          name: "file",
           path: "/file",
           component: () => import("../views/functions/file/index.vue"),
+        },
+        {
+          name: "multiLevelHeader",
+          path: "/multiLevelHeader",
+          meta: {
+            title: "多级表头",
+          },
+          component: () =>
+            import("../views/functions/multiLevelHeader/index.vue"),
+        },
+      ],
+    },
+    {
+      name: "product",
+      path: "/product",
+      // component: () => import("../views/functions/index.vue"),
+      meta: {
+        title: "产品",
+      },
+      children: [
+        {
+          name: "pdf",
+          path: "/aiNav",
+          meta: {
+            title: "AI导航",
+          },
+          component: () => import("../views/product/aiNav/index.vue"),
         },
       ],
     },

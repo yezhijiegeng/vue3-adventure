@@ -97,6 +97,10 @@ const items = reactive([
         name: "CRUD",
         path: "/vue3/examples/crud",
       },
+      {
+        name: "声明式渲染",
+        path: "/vue3/examples/declareRender",
+      },
     ],
   },
   {
