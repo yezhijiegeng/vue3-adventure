@@ -11,9 +11,6 @@
           <Delete @click="deleteWebsite(item)" />
         </el-icon>
       </li>
-      <div>
-        <el-icon><Plus @click="addWebsite" /></el-icon>
-      </div>
     </ul>
     <el-dialog title="编辑网站" v-model="dialogVisible">
       <el-form :model="form">
