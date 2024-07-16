@@ -1,97 +1,54 @@
 <template>
-  <div class="ai-nav">
-    <!-- <h1>编程导航</h1> -->
-    <ul class="nav-list">
-      <li v-for="(item, index) in websites" :key="index">
-        <a :href="item.url">{{ item.name }}</a>
-        <el-icon :size="size" :color="color">
-          <edit @click="editWebsite(item)"
-        /></el-icon>
-        <el-icon>
-          <Delete @click="deleteWebsite(item)" />
-        </el-icon>
-      </li>
-    </ul>
-    <el-dialog title="编辑网站" v-model="dialogVisible">
-      <el-form :model="form">
-        <el-form-item label="名称">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="链接">
-          <el-input v-model="form.url"></el-input>
-        </el-form-item>
-      </el-form>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="saveWebsite">保 存</el-button>
-      </span>
-    </el-dialog>
+  <div id="app">
+    <CategoryList v-for="item in navList" :title="item.name" :initial-items="item.list" />
+    <!-- <CategoryList title="编程导航" :initial-items="programmingItems" /> -->
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import CategoryList from "./CategoryList.vue";
 
 export default {
-  setup() {
-    let id = 3;
-    const websites = ref([
-      { id: 1, name: "网站1", url: "http://www.website1.com" },
-      { id: 2, name: "网站2", url: "http://www.website2.com" },
-    ]);
-
-    const dialogVisible = ref(false);
-    const form = ref({ id: null, name: "", url: "" });
-    const editing = ref(false);
-
-    function addWebsite() {
-      form.value = { id: null, name: "", url: "" };
-      editing.value = false;
-      dialogVisible.value = true;
-    }
-
-    function editWebsite(website) {
-      form.value = { ...website };
-      editing.value = true;
-      dialogVisible.value = true;
-    }
-
-    function deleteWebsite(website) {
-      websites.value = websites.value.filter((w) => w.id !== website.id);
-    }
-
-    function saveWebsite() {
-      if (editing.value) {
-        const index = websites.value.findIndex((w) => w.id === form.value.id);
-        websites.value[index] = { ...form.value };
-      } else {
-        id++;
-        websites.value.push({ id, name: form.value.name, url: form.value.url });
-      }
-      dialogVisible.value = false;
-    }
-
+  components: {
+    CategoryList,
+  },
+  data() {
     return {
-      websites,
-      dialogVisible,
-      form,
-      addWebsite,
-      editWebsite,
-      deleteWebsite,
-      saveWebsite,
+      navList: [
+        {
+          key: "ai",
+		  name:'AI',
+          list: [
+            { id: 1, name: "AI 网站1", url: "http://www.aiwebsite1.com" },
+            { id: 2, name: "AI 网站2", url: "http://www.aiwebsite2.com" },
+          ],
+        },
+        {
+          key: "program",
+		  name:'编程开发',
+          list: [
+            {
+              id: 1,
+              name: "编程网站1",
+              url: "http://www.programmingwebsite1.com",
+            },
+            {
+              id: 2,
+              name: "编程网站2",
+              url: "http://www.programmingwebsite2.com",
+            },
+          ],
+        },
+      ],
+      aiItems: [
+        { id: 1, name: "AI 网站1", url: "http://www.aiwebsite1.com" },
+        { id: 2, name: "AI 网站2", url: "http://www.aiwebsite2.com" },
+      ],
+      programmingItems: [
+        { id: 1, name: "编程网站1", url: "http://www.programmingwebsite1.com" },
+        { id: 2, name: "编程网站2", url: "http://www.programmingwebsite2.com" },
+      ],
     };
   },
 };
 </script>
-
-<style lang="scss">
-.ai-nav {
-  .nav-list {
-    display: flex;
-    li {
-      list-style: none;
-      // text-decoration: none;
-    }
-  }
-}
-</style>

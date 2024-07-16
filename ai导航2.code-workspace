@@ -5,6 +5,12 @@
 		},
 		{
 			"path": "../server/ai-nav-server"
+		},
+		{
+			"path": "../../../../workspace/web/vue/source/vue3/vue"
+		},
+		{
+			"path": "../../../../workspace/test"
 		}
 	],
 	"settings": {
