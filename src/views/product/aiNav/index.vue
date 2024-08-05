@@ -8,11 +8,12 @@
       :initial-items="item.list"
       @addNav="addNav"
       @deleteType="deleteType"
+      @updateType="updateType"
     />
     <!-- <CategoryList title="编程导航" :initial-items="programmingItems" /> -->
   </div>
 
-  <el-dialog title="添加分类" v-model="dialogVisible">
+  <el-dialog :title="dialogTitle" v-model="dialogVisible">
     <el-form :model="categoryForm">
       <el-form-item label="分类名称">
         <el-input v-model="categoryForm.name"></el-input>
@@ -62,6 +63,7 @@ const navList = ref([
  */
 ]);
 
+const dialogTitle = ref("添加分类");
 const dialogVisible = ref(false);
 const categoryForm = ref({
   name: "",
@@ -93,6 +95,14 @@ const addCategory = async (form) => {
 };
 
 const onSubmit = async (form) => {
+  if(dialogTitle.value == '编辑分类'){
+    onUpdate(form)
+  } else {
+    onAdd();
+  }
+};
+
+const onAdd = async (form) => {
   const param = {
     name: categoryForm.value.name,
     type: categoryForm.value.code,
@@ -105,29 +115,25 @@ const onSubmit = async (form) => {
     },
   });
   if (res.data.code == 200) {
-    this.dialogVisible = false;
-    getNavList()
+    dialogVisible.value = false;
+    getNavList();
   }
-};
+}
 
 const deleteType = async (id) => {
-  const param = {
-    id: id,
-  };
-  console.log("param", param);
-  debugger;
-  const res = await axios.post("http://127.0.0.1:5000/delete_nav", param, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await axios.delete(`http://127.0.0.1:5000/delete_nav/${id}`);
   if (res.data.code == 200) {
-    this.dialogVisible = false;
-    getNavList()
+    getNavList();
   }
 };
 
-
+const updateType = async (nav) => {
+  dialogTitle.value = '编辑分类'
+  categoryForm.value.id = nav.id;
+  categoryForm.value.name = nav.name;
+  categoryForm.value.code = nav.type;
+  dialogVisible.value = true;
+};
 
 const getNavList = async () => {
   try {
@@ -144,6 +150,25 @@ const getNavList = async () => {
   } catch (error) {
     // 处理错误
     console.error("There was an error!", error);
+  }
+};
+
+const onUpdate = async (form) => {
+  const param = {
+    name: categoryForm.value.name,
+    type: categoryForm.value.code,
+  };
+  console.log("param", param);
+  console.log("form", form.id);
+  debugger;
+  const res = await axios.put(`http://localhost:5000/update_nav/${categoryForm.value.id}`, param, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (res.data.code == 200) {
+    dialogVisible.value = false;
+    getNavList();
   }
 };
 

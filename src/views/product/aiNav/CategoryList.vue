@@ -2,6 +2,9 @@
   <div class="CategoryList">
     <div class="title">
       <h1>{{ title }}</h1>
+        <el-icon :size="size" :color="color">
+          <edit @click="updateType(website)"
+        /></el-icon>
       <el-icon>
         <Delete @click="deleteType" />
       </el-icon>
@@ -83,11 +86,16 @@ export default {
     }
 
     function deleteType() {
-      context.emit("deleteType", nav.id);
+      debugger
+      context.emit("deleteType", props.nav.id);
+    }
+
+    function updateType() {
+      debugger
+      context.emit("updateType", props.nav);
     }
 
     function saveWebsite() {
-      console.log("editing:", form.value);
       if (editing.value) {
         const index = websites.value.findIndex((w) => w.id === form.value.id);
         websites.value[index] = { ...form.value };
@@ -111,6 +119,8 @@ export default {
       editWebsite,
       deleteWebsite,
       saveWebsite,
+      deleteType,
+      updateType
     };
   },
 };
