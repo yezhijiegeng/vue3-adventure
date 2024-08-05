@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "../../../../workspace/test"
+		},
+		{
+			"path": "../server/python-flask-user-crud"
 		}
 	],
 	"settings": {

@@ -31,9 +31,16 @@ export default defineConfig({
     port:5174,
     proxy: {
       // host: '0.0.0.0',
+      host: 'localhost',
+      // '/api': {
+      //   // target: 'http://localhost:8989',
+      //   target: 'http://10.7.27.76:5000',
+      //   changeOrigin: true,
+      //   rewrite: (path) => path.replace(/^\/api/, ''),
+      // },
       '/api': {
         // target: 'http://localhost:8989',
-        target: 'http://10.7.27.76:5000',
+        target: 'http://127.0.0.1:5000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

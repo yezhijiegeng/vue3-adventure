@@ -1,19 +1,38 @@
 <template>
   <div id="app">
+    <el-button type="primary" @click="addCategory">添加分类</el-button>
     <CategoryList
       v-for="item in navList"
+      :nav="item"
       :title="item.name"
       :initial-items="item.list"
+      @addNav="addNav"
+      @deleteType="deleteType"
     />
     <!-- <CategoryList title="编程导航" :initial-items="programmingItems" /> -->
   </div>
+
+  <el-dialog title="添加分类" v-model="dialogVisible">
+    <el-form :model="categoryForm">
+      <el-form-item label="分类名称">
+        <el-input v-model="categoryForm.name"></el-input>
+      </el-form-item>
+      <el-form-item label="分类Code">
+        <el-input v-model="categoryForm.code"></el-input>
+      </el-form-item>
+    </el-form>
+    <span slot="footer" class="dialog-footer">
+      <el-button @click="dialogVisible = false">取 消</el-button>
+      <el-button type="primary" @click="onSubmit">保 存</el-button>
+    </span>
+  </el-dialog>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import CategoryList from "./CategoryList.vue";
 import { onMounted } from "vue";
-import axios from 'axios';
+import axios from "axios";
 
 const navList = ref([
   /* {
@@ -40,27 +59,95 @@ const navList = ref([
       },
     ],
   },
- */]);
+ */
+]);
+
+const dialogVisible = ref(false);
+const categoryForm = ref({
+  name: "",
+  code: "",
+});
 
 onMounted(async () => {
   // fetchCategories();
+  getNavList();
+});
+
+const addNav = async (form) => {
+  console.log("form", form);
+
+  const res = await axios.post("http://127.0.0.1:5000/add_nav", {
+    name: form.name,
+    list: [form.url],
+  });
+  console.log("res:", res);
+};
+
+const addCategory = async (form) => {
+  dialogVisible.value = true;
+  /*  const res = await axios.post("http://127.0.0.1:5000/add_nav", {
+    name: form.name,
+    list: [form.url],
+  });
+  console.log(res); */
+};
+
+const onSubmit = async (form) => {
+  const param = {
+    name: categoryForm.value.name,
+    type: categoryForm.value.code,
+  };
+  console.log("param", param);
+  debugger;
+  const res = await axios.post("http://127.0.0.1:5000/add_nav", param, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (res.data.code == 200) {
+    this.dialogVisible = false;
+    getNavList()
+  }
+};
+
+const deleteType = async (id) => {
+  const param = {
+    id: id,
+  };
+  console.log("param", param);
+  debugger;
+  const res = await axios.post("http://127.0.0.1:5000/delete_nav", param, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (res.data.code == 200) {
+    this.dialogVisible = false;
+    getNavList()
+  }
+};
+
+
+
+const getNavList = async () => {
   try {
-    const response = await axios.get('http://127.0.0.1:5000/get_nav_list');
+    const response = await axios.get("http://127.0.0.1:5000/get_nav_list");
     // 处理响应数据
 
-    let navs =  response.data.map(item=>{
-      item.list = JSON.parse(item.list)
-      return item
-    })
+    let navs = response.data.map((item) => {
+      item.list = JSON.parse(item.list);
+      return item;
+    });
 
-    navList.value = navs
-    console.log( navList);
-    
+    navList.value = navs;
+    console.log(navList);
   } catch (error) {
     // 处理错误
-    console.error('There was an error!', error);
+    console.error("There was an error!", error);
   }
-});
+};
+
+// type:form.type
 
 /* export default {
   components: {
