@@ -2,9 +2,9 @@
   <div class="CategoryList">
     <div class="title">
       <h1>{{ title }}</h1>
-        <el-icon :size="size" :color="color">
-          <edit @click="updateType(website)"
-        /></el-icon>
+      <el-icon :size="size" :color="color">
+        <edit @click="updateType(website)"
+      /></el-icon>
       <el-icon>
         <Delete @click="deleteType" />
       </el-icon>
@@ -12,7 +12,9 @@
     <el-button type="primary" @click="addWebsite">添加网站</el-button>
     <div class="website-list">
       <div v-for="website in websites" :key="website.id" class="website-item">
-        <a :href="website.url" target="_blank">{{ website.name }}</a>
+        <a :href="website.address" target="_blank">{{
+          website.address_name
+        }}</a>
         <el-icon :size="size" :color="color">
           <edit @click="editWebsite(website)"
         /></el-icon>
@@ -28,10 +30,10 @@
     <el-dialog title="编辑网站" v-model="dialogVisible">
       <el-form :model="form">
         <el-form-item label="名称">
-          <el-input v-model="form.name"></el-input>
+          <el-input v-model="form.address_name"></el-input>
         </el-form-item>
         <el-form-item label="链接">
-          <el-input v-model="form.url"></el-input>
+          <el-input v-model="form.address"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -54,21 +56,22 @@ export default {
 	}) */
   props: {
     title: String,
-    nav: Object ,
+    nav: Object,
   },
   setup(props, context) {
     let id = 3;
-    const websites = ref([
+    /*   const websites = ref([
       { id: 1, name: "网站1", url: "http://www.website1.com" },
       { id: 2, name: "网站2", url: "http://www.website2.com" },
-    ]);
+    ]); */
+
+    const websites = props.nav.addressList;
 
     const dialogVisible = ref(false);
     const form = ref({ id: null, name: "", url: "" });
     const editing = ref(false);
 
     function addWebsite() {
-      debugger;
       form.value = { id: null, name: "", url: "" };
       editing.value = false;
       dialogVisible.value = true;
@@ -86,26 +89,37 @@ export default {
     }
 
     function deleteType() {
-      debugger
+      debugger;
       context.emit("deleteType", props.nav.id);
     }
 
     function updateType() {
-      debugger
+      debugger;
       context.emit("updateType", props.nav);
     }
 
     function saveWebsite() {
       if (editing.value) {
-        const index = websites.value.findIndex((w) => w.id === form.value.id);
-        websites.value[index] = { ...form.value };
+        debugger
+        const index = websites.findIndex((w) => w.id === form.value.id);
+        websites[index] = { ...form.value };
+        context.emit("optNav", {
+          data: {
+            id:form.value.id,
+            address_name: form.value.address_name,
+            address: form.value.address,
+          },
+          type: "edit",
+        });
       } else {
         id++;
-        websites.value.push({ id, name: form.value.name, url: form.value.url });
-        context.emit("addNav", {
-          id,
-          name: form.value.name,
-          url: form.value.url,
+        websites.push({ id, name: form.value.name, url: form.value.url });
+        context.emit("optNav", {
+          data: {
+            address_name: form.value.address_name,
+            address: form.value.address,
+          },
+          type:"add"
         });
       }
       dialogVisible.value = false;
@@ -120,7 +134,7 @@ export default {
       deleteWebsite,
       saveWebsite,
       deleteType,
-      updateType
+      updateType,
     };
   },
 };

@@ -6,7 +6,7 @@
       :nav="item"
       :title="item.name"
       :initial-items="item.list"
-      @addNav="addNav"
+      @optNav="optNav"
       @deleteType="deleteType"
       @updateType="updateType"
     />
@@ -72,17 +72,26 @@ const categoryForm = ref({
 
 onMounted(async () => {
   // fetchCategories();
-  getNavList();
+  // getNavList();
+  getAllList();
 });
 
-const addNav = async (form) => {
-  console.log("form", form);
-
-  const res = await axios.post("http://127.0.0.1:5000/add_nav", {
-    name: form.name,
-    list: [form.url],
-  });
-  console.log("res:", res);
+const optNav = async (obj) => {
+  const form = obj.data;
+  debugger;
+  if (obj.type === "add") {
+    const res = await axios.post("http://127.0.0.1:5000/add_nav", {
+      address_name: form.address_name,
+      address: form.address,
+    });
+    console.log("res:", res);
+  } else if (obj.type === "edit") {
+    const res = await axios.put("http://127.0.0.1:5000/update_website/"+ form.id, {
+      address_name: form.address_name,
+      address: form.address,
+    });
+    console.log("res:", res);
+  }
 };
 
 const addCategory = async (form) => {
@@ -95,8 +104,8 @@ const addCategory = async (form) => {
 };
 
 const onSubmit = async (form) => {
-  if(dialogTitle.value == '编辑分类'){
-    onUpdate(form)
+  if (dialogTitle.value == "编辑分类") {
+    onUpdate(form);
   } else {
     onAdd();
   }
@@ -118,7 +127,7 @@ const onAdd = async (form) => {
     dialogVisible.value = false;
     getNavList();
   }
-}
+};
 
 const deleteType = async (id) => {
   const res = await axios.delete(`http://127.0.0.1:5000/delete_nav/${id}`);
@@ -128,11 +137,29 @@ const deleteType = async (id) => {
 };
 
 const updateType = async (nav) => {
-  dialogTitle.value = '编辑分类'
+  dialogTitle.value = "编辑分类";
   categoryForm.value.id = nav.id;
   categoryForm.value.name = nav.name;
   categoryForm.value.code = nav.type;
   dialogVisible.value = true;
+};
+
+const getAllList = async () => {
+  try {
+    const res = await axios.get("http://127.0.0.1:5000/get_cate_address");
+    // 处理响应数据
+    if (res.data.code === 200) {
+      let navs = res.data.data.map((item) => {
+        item.list = item.addressList;
+        return item;
+      });
+      navList.value = navs;
+      console.log(navList);
+    }
+  } catch (error) {
+    // 处理错误
+    console.error("There was an error!", error);
+  }
 };
 
 const getNavList = async () => {
@@ -161,11 +188,15 @@ const onUpdate = async (form) => {
   console.log("param", param);
   console.log("form", form.id);
   debugger;
-  const res = await axios.put(`http://localhost:5000/update_nav/${categoryForm.value.id}`, param, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await axios.put(
+    `http://127.0.0.1:5000/update_nav/${categoryForm.value.id}`,
+    param,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   if (res.data.code == 200) {
     dialogVisible.value = false;
     getNavList();

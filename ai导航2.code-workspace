@@ -14,6 +14,21 @@
 		},
 		{
 			"path": "../server/python-flask-user-crud"
+		},
+		{
+			"path": "../admin/td-admin/ainav-admin-td-next/ai-nav-admin-td-next"
+		},
+		{
+			"path": "../admin/td-admin/time-manage-system-tdsign-vue2"
+		},
+		{
+			"path": "../chat/react/next/ai-nav-chat"
+		},
+		{
+			"path": "../../../../workspace/react/next/nextjs-dashboard"
+		},
+		{
+			"path": "../admin/td-admin/td-ai-nav-chat"
 		}
 	],
 	"settings": {
