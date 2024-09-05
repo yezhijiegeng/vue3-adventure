@@ -77,20 +77,26 @@ onMounted(async () => {
 });
 
 const optNav = async (obj) => {
-  const form = obj.data;
-  debugger;
-  if (obj.type === "add") {
-    const res = await axios.post("http://127.0.0.1:5000/add_nav", {
+  const form = obj;
+  let res = {};
+  if (form.type === "add") {
+    res = await axios.post("http://127.0.0.1:5000/add_website", {
+      address_name: form.address_name,
+      address: form.address,
+      category_id: form.category_id,
+    });
+  } else if (form.type === "edit") {
+    res = await axios.put("http://127.0.0.1:5000/update_website/" + form.id, {
       address_name: form.address_name,
       address: form.address,
     });
-    console.log("res:", res);
-  } else if (obj.type === "edit") {
-    const res = await axios.put("http://127.0.0.1:5000/update_website/"+ form.id, {
-      address_name: form.address_name,
-      address: form.address,
-    });
-    console.log("res:", res);
+  } else if (form.type === "delete") {
+    res = await axios.delete("http://127.0.0.1:5000/delete_website/" + form.id);
+  }
+  console.log("res:", res);
+  debugger
+  if(res.data.code===200){
+    getAllList()
   }
 };
 

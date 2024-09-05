@@ -9,7 +9,7 @@
         <Delete @click="deleteType" />
       </el-icon>
     </div>
-    <el-button type="primary" @click="addWebsite">添加网站</el-button>
+    <!-- <el-button type="primary" @click="addWebsite">添加网站</el-button> -->
     <div class="website-list">
       <div v-for="website in websites" :key="website.id" class="website-item">
         <a :href="website.address" target="_blank">{{
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <el-dialog title="编辑网站" v-model="dialogVisible">
+    <el-dialog :title="dialogTitle" v-model="dialogVisible">
       <el-form :model="form">
         <el-form-item label="名称">
           <el-input v-model="form.address_name"></el-input>
@@ -67,7 +67,8 @@ export default {
 
     const websites = props.nav.addressList;
 
-    const dialogVisible = ref(false);
+    const dialogVisible = ref(false)
+    const dialogTitle = ref('');
     const form = ref({ id: null, name: "", url: "" });
     const editing = ref(false);
 
@@ -75,51 +76,55 @@ export default {
       form.value = { id: null, name: "", url: "" };
       editing.value = false;
       dialogVisible.value = true;
-      context.emit("addNav", form.value);
+      dialogTitle.value = '添加网址'
+      // context.emit("addNav", form.value);
     }
 
     function editWebsite(website) {
       form.value = { ...website };
       editing.value = true;
       dialogVisible.value = true;
+      dialogTitle.value = '编辑网址'
     }
 
     function deleteWebsite(website) {
-      websites.value = websites.value.filter((w) => w.id !== website.id);
+
+      context.emit("optNav",
+      {
+        
+        id:website.id,
+            type: "delete"} );
+      // websites.value = websites.value.filter((w) => w.id !== website.id);
     }
 
     function deleteType() {
-      debugger;
       context.emit("deleteType", props.nav.id);
     }
 
     function updateType() {
-      debugger;
+  
       context.emit("updateType", props.nav);
     }
 
     function saveWebsite() {
       if (editing.value) {
-        debugger
         const index = websites.findIndex((w) => w.id === form.value.id);
         websites[index] = { ...form.value };
         context.emit("optNav", {
-          data: {
-            id:form.value.id,
+          id:form.value.id,
             address_name: form.value.address_name,
             address: form.value.address,
-          },
-          type: "edit",
+            type: "edit",
         });
       } else {
-        id++;
-        websites.push({ id, name: form.value.name, url: form.value.url });
+
+       /*  id++;
+        websites.push({ id, name: form.value.name, url: form.value.url }); */
         context.emit("optNav", {
-          data: {
-            address_name: form.value.address_name,
+          address_name: form.value.address_name,
             address: form.value.address,
-          },
-          type:"add"
+            category_id:props.nav.ID,
+            type:"add"
         });
       }
       dialogVisible.value = false;
