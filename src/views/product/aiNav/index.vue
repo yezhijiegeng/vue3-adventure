@@ -4,7 +4,7 @@
     <CategoryList
       v-for="item in navList"
       :nav="item"
-      :title="item.name"
+      :title="item.cateName"
       :initial-items="item.list"
       @optNav="optNav"
       @deleteType="deleteType"
@@ -16,11 +16,11 @@
   <el-dialog :title="dialogTitle" v-model="dialogVisible">
     <el-form :model="categoryForm">
       <el-form-item label="分类名称">
-        <el-input v-model="categoryForm.name"></el-input>
+        <el-input v-model="categoryForm.cateName"></el-input>
       </el-form-item>
-      <el-form-item label="分类Code">
+     <!--  <el-form-item label="分类Code">
         <el-input v-model="categoryForm.code"></el-input>
-      </el-form-item>
+      </el-form-item> -->
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button @click="dialogVisible = false">取 消</el-button>
@@ -66,8 +66,9 @@ const navList = ref([
 const dialogTitle = ref("添加分类");
 const dialogVisible = ref(false);
 const categoryForm = ref({
-  name: "",
-  code: "",
+  cateName: "",
+  id:null,
+  // code: "",
 });
 
 onMounted(async () => {
@@ -142,11 +143,20 @@ const deleteType = async (id) => {
   }
 };
 
-const updateType = async (nav) => {
+/* const updateType = async (nav) => {
+  debugger
   dialogTitle.value = "编辑分类";
   categoryForm.value.id = nav.id;
   categoryForm.value.name = nav.name;
   categoryForm.value.code = nav.type;
+  dialogVisible.value = true;
+}; */
+
+const updateType = async (nav) => {
+  debugger
+  dialogTitle.value = "编辑分类";
+  categoryForm.value.id = nav.ID;
+  categoryForm.value.cateName = nav.cateName;
   dialogVisible.value = true;
 };
 
@@ -187,15 +197,16 @@ const getNavList = async () => {
 };
 
 const onUpdate = async (form) => {
+  debugger
   const param = {
-    name: categoryForm.value.name,
-    type: categoryForm.value.code,
+    name: categoryForm.value.cateName,
+    // type: categoryForm.value.code,
   };
   console.log("param", param);
   console.log("form", form.id);
   debugger;
   const res = await axios.put(
-    `http://127.0.0.1:5000/update_nav/${categoryForm.value.id}`,
+    `http://127.0.0.1:5000/update_category/${categoryForm.value.id}`,
     param,
     {
       headers: {
