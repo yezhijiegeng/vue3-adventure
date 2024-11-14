@@ -1,34 +1,50 @@
 {
 	"folders": [
 		{
+			"name": "vue3-adventure",
 			"path": "."
 		},
 		{
+			"name": "ai-nav-server",
 			"path": "../server/ai-nav-server"
 		},
 		{
+			"name": "vue",
 			"path": "../../../../workspace/web/vue/source/vue3/vue"
 		},
 		{
+			"name": "test",
 			"path": "../../../../workspace/test"
 		},
 		{
+			"name": "python-flask-user-crud",
 			"path": "../server/python-flask-user-crud"
 		},
 		{
-			"path": "../admin/td-admin/ainav-admin-td-next/ai-nav-admin-td-next"
-		},
-		{
+			"name": "time-manage-system-tdsign-vue2",
 			"path": "../admin/td-admin/time-manage-system-tdsign-vue2"
 		},
 		{
+			"name": "ai-nav-chat",
 			"path": "../chat/react/next/ai-nav-chat"
 		},
 		{
+			"name": "nextjs-dashboard",
 			"path": "../../../../workspace/react/next/nextjs-dashboard"
 		},
 		{
+			"name": "td-ai-nav-chat",
 			"path": "../admin/td-admin/td-ai-nav-chat"
+		},
+		{
+			"name": "ai-nav-admin-td-next",
+			"path": "../admin/td-admin/ainav-admin-td-next/ai-nav-admin-td-next"
+		},
+		{
+			"path": "../../algorithm/algorithm"
+		},
+		{
+			"path": "../../../javascript/proficient-javascript-jonh-resig"
 		}
 	],
 	"settings": {

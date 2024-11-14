@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+// import HomeView from "../views/HomeView.vue";
 import Home from "../views/home/index.vue";
 import { title } from "process";
 
@@ -9,7 +9,7 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: Home,
+      // component: () => import('../views/home/index.vue') ,
     },
     {
       path: "/home",
@@ -138,6 +138,11 @@ const router = createRouter({
           component: () => import("../views/javascript/typescript/index.vue"),
         },
         {
+          name: "visual",
+          path: "/visual",
+          component: () => import("../views/javascript/visual/index.vue"),
+        },
+        {
           name: "desighPattern",
           path: "/desighPattern",
           component: () =>
@@ -165,6 +170,11 @@ const router = createRouter({
           name: "ai导航",
           path: "/ai-nav",
           component: () => import("../views/ai/ai-nav/index.vue"),
+        },
+        {
+          name: "AI助手",
+          path: "/ai-assistant",
+          component: () => import("../views/ai/ai-assistant/index.vue"),
         },
         {
           name: "chatGpt",

@@ -74,6 +74,13 @@ const categoryForm = ref({
 onMounted(async () => {
   // fetchCategories();
   // getNavList();
+
+ /*  const res = await axios.post("http://127.0.0.1:5000/add_website", {
+    address_name: form.address_name,
+    address: form.address,
+    category_id: form.category_id,
+  }); */
+
   getAllList();
 });
 

@@ -1,14 +1,13 @@
 <template>
   <div class="home">
-    <!-- <Header /> -->
-    <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
-      <el-radio-button :label="false">展开</el-radio-button>
-      <el-radio-button :label="true">收起</el-radio-button>
-    </el-radio-group>
+    <Header />
     <el-container>
+      <!-- <el-header>
+        <Header />
+      </el-header> -->
       <el-container>
-        <el-aside width="200px" v-show="!isCollapse">
-          <el-menu router :collapse="isCollapse">
+        <el-aside width="200px">
+          <el-menu router>
             <template v-for="v in items" :key="v.path">
               <el-sub-menu v-if="v.children" :index="v.index">
                 <template #title>
@@ -54,9 +53,9 @@
           </el-menu>
         </el-aside>
         <el-main>
-          <slot></slot>
-          <!-- <router-view></router-view> -->
-          <!-- <div class="demo">
+          <div>
+          </div>
+          <div class="demo">
             <button
               v-for="(_, tab) in tabs"
               :key="tab"
@@ -74,7 +73,7 @@
               :title="post.title"
               @enlarge-text="postFontSize += 0.1"
             />
-          </div> -->
+          </div>
         </el-main>
       </el-container>
     </el-container>
@@ -91,8 +90,6 @@ import Program from "./pages/program.vue";
 import Foreign from "./pages/foreign.vue";
 import Ai from "@/views/home/pages/ai/index.vue";
 import Header from "@/views/header/index.vue";
-
-const isCollapse = ref(true)
 
 const items = reactive([
   {
@@ -173,8 +170,7 @@ const items = reactive([
       {
         name: "ai-admin",
         path: "/ai-admin",
-      },
-      {
+      }, {
         name: "系统配置",
         path: "/config",
       },
