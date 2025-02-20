@@ -151,6 +151,17 @@ const router = createRouter({
       ],
     },
     {
+      path: "/algorithm",
+      name: "algorithm",
+      children: [
+        {
+          name: "prefix",
+          path: "/prefix",
+          component: () => import("../views/algorithm/prefix/index.vue"),
+        },
+      ],
+    },
+    {
       path: "/front",
       name: "/front",
       children: [
@@ -252,6 +263,15 @@ const router = createRouter({
           },
           component: () =>
             import("../views/functions/multiLevelHeader/index.vue"),
+        },
+        {
+          name: "commonMenus",
+          path: "/commonMenus",
+          meta: {
+            title: "公共菜单",
+          },
+          component: () =>
+            import("../views/functions/commonMenus/index.vue"),
         },
       ],
     },

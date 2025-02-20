@@ -92,7 +92,7 @@ import Foreign from "./pages/foreign.vue";
 import Ai from "@/views/home/pages/ai/index.vue";
 import Header from "@/views/header/index.vue";
 
-const isCollapse = ref(true)
+const isCollapse = ref(false)
 
 const items = reactive([
   {
@@ -142,6 +142,18 @@ const items = reactive([
       {
         name: "Navigator two two",
         path: "/testtwo",
+        // icon: Setting,
+      },
+    ],
+  },
+  {
+    name: "算法",
+    // icon: Message,
+    index: 2_1,
+    children: [
+      {
+        name: "prefix",
+        path: "/prefix",
         // icon: Setting,
       },
     ],
@@ -198,6 +210,10 @@ const items = reactive([
       {
         name: "多级表头",
         path: "/multiLevelHeader",
+      },
+      {
+        name: "公共菜单",
+        path: "/commonMenus",
       },
       // path: "/ai",
     ],
