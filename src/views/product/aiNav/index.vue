@@ -123,7 +123,6 @@ const onSubmit = async (form) => {
 };
 
 const onAdd = async () => {
-  debugger
   const param = {
     name: categoryForm.value.cateName,
     // type: categoryForm.value.code,
@@ -136,7 +135,8 @@ const onAdd = async () => {
   });
   if (res.data.code == 200) {
     dialogVisible.value = false;
-    getNavList();
+    // getNavList();
+    getAllList()
   }
 };
 
@@ -202,7 +202,6 @@ const getNavList = async () => {
 };
 
 const onUpdate = async (form) => {
-  debugger
   const param = {
     name: categoryForm.value.cateName,
     // type: categoryForm.value.code,
@@ -221,7 +220,8 @@ const onUpdate = async (form) => {
   );
   if (res.data.code == 200) {
     dialogVisible.value = false;
-    getNavList();
+    // getNavList();
+    getAllList()
   }
 };
 
