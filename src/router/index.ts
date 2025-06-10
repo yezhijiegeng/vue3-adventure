@@ -148,6 +148,11 @@ const router = createRouter({
           component: () =>
             import("../views/javascript/desigh-pattern/index.vue"),
         },
+        // {
+        //   name: "mockjs",
+        //   path: "/mockjs",
+        //   component: () => import("../views/javascript/mockjs/index.vue"),
+        // },
       ],
     },
     {

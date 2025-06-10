@@ -1,6 +1,26 @@
 <template>
   <div class="home">
-    <!-- <Header /> -->
+    <el-menu
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
+      :ellipsis="false"
+      @select="handleSelect"
+    >
+      <el-menu-item index="0">
+        <img
+          style="height:60px;"
+          src="@/assets/images/web_logo.png"
+          alt="Element logo"
+          
+        />
+      </el-menu-item>
+      <el-menu-item index="1">个人中心</el-menu-item>
+      <el-sub-menu index="2">
+        <template #title>达芬桃</template>
+        <el-menu-item index="2-1" @click="onExit">退出登录</el-menu-item>
+      </el-sub-menu>
+    </el-menu>
     <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
       <el-radio-button :label="false">展开</el-radio-button>
       <el-radio-button :label="true">收起</el-radio-button>
@@ -92,7 +112,13 @@ import Foreign from "./pages/foreign.vue";
 import Ai from "@/views/home/pages/ai/index.vue";
 import Header from "@/views/header/index.vue";
 
+
 const isCollapse = ref(false)
+
+const activeIndex = ref('1')
+function handleSelect(key: string, keyPath: string[]) {
+  console.log(key, keyPath)
+}
 
 const items = reactive([
   {
@@ -144,6 +170,10 @@ const items = reactive([
         path: "/testtwo",
         // icon: Setting,
       },
+      // {
+      //   name: "mockJs",
+      //   path: "/mockjs",
+      // },
     ],
   },
   {
@@ -280,6 +310,11 @@ const tabs: any = {
   Foreign,
   Ai,
 };
+
+function  onExit() {
+  console.log("退出登录")
+}
+
 </script>
 <style lang="scss" scoped>
 .home {
@@ -318,6 +353,10 @@ const tabs: any = {
   .header-box {
     display: flex;
     justify-content: space-between;
+  }
+
+  .el-menu--horizontal > .el-menu-item:nth-child(1) {
+    margin-right: auto;
   }
 }
 </style>

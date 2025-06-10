@@ -11,6 +11,8 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import "./assets/main.css";
 import '@/assets/fonts/iconfont.css'
 import GesturePassword from '@alitajs/gesture-password-vue';
+// 引入mock文件
+// import "@/mock"; // mock 方式，正式发布时，注释掉该处即可
 
 const app = createApp(App);
 
