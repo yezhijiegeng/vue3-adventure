@@ -5,6 +5,14 @@
   <h1>简介</h1>
   <h2> 什么是 TypeScript</h2>
   <WhatTypescript/>
+
+  <div>
+    <button v-permission="'edit'" name="edit-button">Edit</button>
+    <button v-permission="'delete'" name="delete-button">Delete</button>
+    <button v-permission="'view'" name="view-button">View</button>
+    <button v-permission="'add'" name="add-button">Add</button>
+  </div>
+
   <hr>
 </template>
 

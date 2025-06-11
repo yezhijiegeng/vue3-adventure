@@ -13,6 +13,7 @@ import '@/assets/fonts/iconfont.css'
 import GesturePassword from '@alitajs/gesture-password-vue';
 // 引入mock文件
 // import "@/mock"; // mock 方式，正式发布时，注释掉该处即可
+import permission from './directives/permission'; // 导入指令
 
 const app = createApp(App);
 
@@ -34,6 +35,8 @@ app.config.errorHandler = (err) => {
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
+
+app.directive('permission', permission)
 
 // app.component("toDoDeleteButton",TodoDeleteButton);
 
