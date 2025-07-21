@@ -148,6 +148,12 @@ const router = createRouter({
           component: () =>
             import("../views/javascript/desigh-pattern/index.vue"),
         },
+        {
+          name: "mockjs",
+          path: "/mockjs",
+          component: () =>
+            import("../views/web/mock/index.vue"),
+        },
         // {
         //   name: "mockjs",
         //   path: "/mockjs",
@@ -223,6 +229,25 @@ const router = createRouter({
       ],
     },
     {
+      path: '/user',
+      component: import("../views/user/index.vue"),
+      redirect: '/user/',
+      name: '',
+      meta: {title: '用户权限', icon: 'table'},
+      children: [
+        {
+          path: 'user', name: '用户列表', component: import("../views/user/user.vue"), meta: {title: '用户列表', icon: 'user'}, menu: 'user'
+        },
+        {
+          path: 'role',
+          name: '权限管理',
+          component: import("../views/user/role.vue"),
+          meta: {title: '权限管理', icon: 'password'},
+          menu: 'role'
+        },
+      ]
+    },
+    {
       path: "/admin",
       name: "admin",
       component: () => import("../views/admin/index.vue"),
@@ -295,6 +320,13 @@ const router = createRouter({
             title: "AI导航",
           },
           component: () => import("../views/product/aiNav/index.vue"),
+        }, {
+          name: "aiNavHome",
+          path: "/about",
+          meta: {
+            title: "详情页",
+          },
+          component: () => import("../views/product/aiNav/about.vue"),
         },
       ],
     },

@@ -158,6 +158,10 @@ const items = reactive([
         path: "/desighPattern",
       },
       {
+        name: "Mock",
+        path: "/mockjs",
+      },
+      {
         name: "图形图像",
         path: "/picture",
       },
@@ -209,6 +213,19 @@ const items = reactive([
     // icon: Message,
   },
   {
+    name: "用户权限",
+    children: [
+      {
+        name: "用户列表",
+        path: "/user/user",
+      },
+      {
+        name: "系统配置",
+        path: "/user/role",
+      },
+    ],
+  },
+  {
     name: "admin",
     // index: 3,
     children: [
@@ -257,6 +274,9 @@ const items = reactive([
       {
         name: "AI导航",
         path: "/aiNav",
+      },{
+        name: "AI详情页",
+        path: "/about",
       },
       // path: "/ai",
     ],
