@@ -3,7 +3,7 @@
     <div style="display:flex;">
       <div style="flex:1;">
         <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen"
-          @close="handleClose">
+          @close="handleClose" @select="onSelect">
           <el-menu-item index="1">
             <el-icon><icon-menu /></el-icon>
             <template #title>常用</template>
@@ -30,12 +30,12 @@
             </el-icon>
             <template #title>编程</template>
           </el-menu-item>
-          <el-menu-item index="6">
+          <!-- <el-menu-item index="6">
             <el-icon>
               <setting />
             </el-icon>
             <template #title>vvvv</template>
-          </el-menu-item>
+          </el-menu-item> -->
         </el-menu>
       </div>
       <div  style="flex:4;">
@@ -61,6 +61,12 @@ const handleOpen = (key: string, keyPath: string[]) => {
 }
 const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
+}
+
+const onSelect = (key: string)=>{
+  if(key==='6'){
+    console.log(key)
+  }
 }
 
 </script>
