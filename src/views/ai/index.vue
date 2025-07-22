@@ -33,7 +33,7 @@ export default class AiHome extends Vue {
     }else if(val === 'draw'){
       this.router.push({ path: '/draw' });
     }else if(val === 'ai-nav'){
-      debugger
+      
       this.router.push({ path: '/ai-nav' });
     }
   }
