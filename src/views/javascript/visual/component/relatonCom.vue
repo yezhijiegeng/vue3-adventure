@@ -151,7 +151,6 @@ const setNode = async (objs) => {
     // const res = await gvData(objs)
     // const { Error, Data } = res.data.Response
     // const res = graphData
-    debugger
     const { Error, Data } = graphData
     if (Error.Code != 0) return ElMessage({
         type: 'error',

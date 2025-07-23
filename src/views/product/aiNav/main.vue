@@ -1,4 +1,5 @@
 <template>
+  <topNav/>
   <div id="app">
     <el-button type="primary" @click="addCategory">添加分类</el-button>
     <CategoryList v-for="item in navList" :nav="item" :title="item.cateName" :initial-items="item.list" @optNav="optNav"
@@ -27,6 +28,7 @@ import CategoryList from "./CategoryList.vue";
 import { onMounted } from "vue";
 import axios from "axios";
 import type { FormInstance, FormRules } from 'element-plus'
+import TopNav from './topNav.vue'
 
 const navList = ref([
   /* {
@@ -99,7 +101,7 @@ const optNav = async (obj) => {
     res = await axios.delete("http://127.0.0.1:5000/delete_website/" + form.id);
   }
   console.log("res:", res);
-  debugger
+  
   if (res.data.code === 200) {
     getAllList()
   }
@@ -141,7 +143,7 @@ const onAdd = async () => {
 };
 
 const deleteType = async (id) => {
-  debugger
+  
   const res = await axios.delete(`http://127.0.0.1:5000/delete_nav/${id}`);
   if (res.data.code == 200) {
     // getNavList();
@@ -150,7 +152,7 @@ const deleteType = async (id) => {
 };
 
 /* const updateType = async (nav) => {
-  debugger
+  
   dialogTitle.value = "编辑分类";
   categoryForm.value.id = nav.id;
   categoryForm.value.name = nav.name;
@@ -159,7 +161,7 @@ const deleteType = async (id) => {
 }; */
 
 const updateType = async (nav) => {
-  debugger
+  
   dialogTitle.value = "编辑分类";
   categoryForm.value.id = nav.ID;
   categoryForm.value.cateName = nav.cateName;
@@ -208,7 +210,7 @@ const onUpdate = async (form) => {
   };
   console.log("param", param);
   console.log("form", form.id);
-  debugger;
+  ;
   const res = await axios.put(
     `http://127.0.0.1:5000/update_category/${categoryForm.value.id}`,
     param,

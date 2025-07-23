@@ -120,7 +120,7 @@ export default class AiNav extends Vue {
   router = useRouter();
 
   handleSelect(index: string) {
-    debugger;
+    
     this.router.push({ name: index });
   }
   toUrl(url) {

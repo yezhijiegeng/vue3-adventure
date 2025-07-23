@@ -22,7 +22,7 @@ export default class Picture extends Vue {
   }
 
   draw(value) {
-		debugger
+		
     var myCanvas = document.getElementById("myCanvas");
     var ctx = myCanvas.getContext("2d");
 
@@ -43,7 +43,6 @@ export default class Picture extends Vue {
   }
 
   mounted() {
-    debugger;
     this.initCancas();
   }
 }

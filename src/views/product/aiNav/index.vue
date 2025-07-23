@@ -12,6 +12,12 @@
             <el-icon><icon-menu /></el-icon>
             <template #title>热门</template>
           </el-menu-item>
+          <el-menu-item index="chat">
+            <el-icon>
+              <document />
+            </el-icon>
+            <template #title>聊天</template>
+          </el-menu-item>
           <el-menu-item index="3">
             <el-icon>
               <document />
@@ -54,7 +60,6 @@ import {
   Setting,
 } from '@element-plus/icons-vue'
 import Main from './main.vue'
-
 
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
